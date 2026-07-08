@@ -1,4 +1,39 @@
 {
+  "cookies": {
+    "banner": "This site uses only technical cookies necessary for its proper operation. No advertising or tracking cookies are used.",
+    "accept": "Accept",
+    "learnMore": "Learn more",
+    "policy": {
+      "eyebrow": "Transparency",
+      "title": "Cookie Policy",
+      "intro": "Information about the use of cookies on the Mashini & Associés website.",
+      "updated": "Last updated: July 2026",
+      "whatAre": {
+        "title": "What is a cookie?",
+        "desc": "A cookie is a small text file placed on your device (computer, tablet or phone) when you visit a website. It allows the site to remember certain information about your browsing."
+      },
+      "technical": {
+        "title": "Technical cookies",
+        "desc": "Our site uses only technical cookies, which are essential for the site to function. They do not collect any data for advertising or profiling purposes."
+      },
+      "locale": {
+        "title": "Language cookie",
+        "desc": "A cookie is used to remember the language you have selected (French, English or Chinese) so that the content is displayed in your language on future visits."
+      },
+      "noTracking": {
+        "title": "No advertising cookies",
+        "desc": "We do not use any tracking, behavioural analytics or advertising cookies. No browsing data is shared with third parties."
+      },
+      "manage": {
+        "title": "Managing cookies",
+        "desc": "You can disable cookies at any time via your browser settings. Please note that disabling technical cookies may affect the proper functioning of the site."
+      },
+      "contact": {
+        "title": "Contact",
+        "desc": "For any questions about our use of cookies, contact us at contact@mashiniassocies.com."
+      }
+    }
+  },
   "common": {
     "contactUs": "Contact us",
     "learnMore": "Learn more",
@@ -55,6 +90,7 @@
     "hours": "Mon – Fri: 8:30 am – 5:00 pm",
     "legal": "Legal notice",
     "privacy": "Privacy policy",
+    "cookiesLink": "Cookie policy",
     "allRights": "All rights reserved."
   },
   "home": {

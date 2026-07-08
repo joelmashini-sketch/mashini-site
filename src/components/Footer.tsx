@@ -137,6 +137,7 @@ export default function Footer() {
           <div className="flex gap-6">
             <Link href="/mentions-legales" className="hover:text-white/80">{t("legal")}</Link>
             <Link href="/confidentialite" className="hover:text-white/80">{t("privacy")}</Link>
+            <Link href="/politique-cookies" className="hover:text-white/80">{t("cookiesLink")}</Link>
           </div>
         </Container>
       </div>

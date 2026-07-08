@@ -1,4 +1,39 @@
 {
+  "cookies": {
+    "banner": "本网站仅使用正常运营所必需的技术性Cookie，不使用任何广告或追踪Cookie。",
+    "accept": "接受",
+    "learnMore": "了解更多",
+    "policy": {
+      "eyebrow": "透明度",
+      "title": "Cookie政策",
+      "intro": "关于Mashini & Associés网站使用Cookie的信息说明。",
+      "updated": "最后更新：2026年7月",
+      "whatAre": {
+        "title": "什么是Cookie？",
+        "desc": "Cookie是您访问网站时存储在您设备（电脑、平板或手机）上的小型文本文件，允许网站记住您的某些浏览信息。"
+      },
+      "technical": {
+        "title": "技术性Cookie",
+        "desc": "本网站仅使用网站正常运行所必需的技术性Cookie，不收集任何用于广告或用户画像目的的数据。"
+      },
+      "locale": {
+        "title": "语言Cookie",
+        "desc": "我们使用Cookie记录您选择的语言（法语、英语或中文），以便在您下次访问时以您的语言显示内容。"
+      },
+      "noTracking": {
+        "title": "无广告Cookie",
+        "desc": "我们不使用任何追踪、行为分析或广告Cookie，不与任何第三方共享浏览数据。"
+      },
+      "manage": {
+        "title": "Cookie管理",
+        "desc": "您可以随时通过浏览器设置禁用Cookie。请注意，禁用技术性Cookie可能会影响网站的正常运行。"
+      },
+      "contact": {
+        "title": "联系方式",
+        "desc": "如有任何关于Cookie使用的问题，请发送邮件至 contact@mashiniassocies.com。"
+      }
+    }
+  },
   "common": {
     "contactUs": "联系我们",
     "learnMore": "了解更多",
@@ -55,6 +90,7 @@
     "hours": "周一至周五：8:30 – 17:00",
     "legal": "法律声明",
     "privacy": "隐私政策",
+    "cookiesLink": "Cookie政策",
     "allRights": "版权所有。"
   },
   "home": {

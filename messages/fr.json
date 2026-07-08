@@ -1,4 +1,39 @@
 {
+  "cookies": {
+    "banner": "Ce site utilise uniquement des cookies techniques nécessaires à son bon fonctionnement. Aucun cookie publicitaire ou de suivi n'est utilisé.",
+    "accept": "J'accepte",
+    "learnMore": "En savoir plus",
+    "policy": {
+      "eyebrow": "Transparence",
+      "title": "Politique des cookies",
+      "intro": "Informations sur l'utilisation des cookies sur le site de Mashini & Associés.",
+      "updated": "Dernière mise à jour : juillet 2026",
+      "whatAre": {
+        "title": "Qu'est-ce qu'un cookie ?",
+        "desc": "Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, tablette ou téléphone) lors de votre visite sur un site web. Il permet au site de mémoriser certaines informations sur votre navigation."
+      },
+      "technical": {
+        "title": "Cookies techniques",
+        "desc": "Notre site utilise uniquement des cookies techniques, indispensables au fonctionnement du site. Ils ne collectent aucune donnée à des fins publicitaires ou de profilage."
+      },
+      "locale": {
+        "title": "Cookie de langue",
+        "desc": "Un cookie est utilisé pour mémoriser la langue que vous avez sélectionnée (français, anglais ou chinois) afin de vous afficher le contenu dans votre langue lors de vos prochaines visites."
+      },
+      "noTracking": {
+        "title": "Pas de cookies publicitaires",
+        "desc": "Nous n'utilisons aucun cookie de suivi, d'analyse comportementale ou publicitaire. Aucune donnée de navigation n'est partagée avec des tiers."
+      },
+      "manage": {
+        "title": "Gestion des cookies",
+        "desc": "Vous pouvez à tout moment désactiver les cookies via les paramètres de votre navigateur. Notez que la désactivation des cookies techniques peut affecter le bon fonctionnement du site."
+      },
+      "contact": {
+        "title": "Contact",
+        "desc": "Pour toute question relative à notre utilisation des cookies, contactez-nous à contact@mashiniassocies.com."
+      }
+    }
+  },
   "common": {
     "contactUs": "Nous contacter",
     "learnMore": "En savoir plus",
@@ -55,6 +90,7 @@
     "hours": "Lun – Ven : 08h30 – 17h00",
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité",
+    "cookiesLink": "Politique des cookies",
     "allRights": "Tous droits réservés."
   },
   "home": {
