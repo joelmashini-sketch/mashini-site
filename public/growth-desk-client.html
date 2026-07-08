@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth Desk · Votre reporting financier SYSCOHADA · MASHINI & Associés</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --brand-orange:#E85D28;
+  --brand-orange-dark:#C94D1F;
+  --brand-orange-light:#FFF3EE;
+  --brand-orange-mid:#FDDED4;
+  --brand-navy:#1E2B4A;
+  --brand-navy-mid:#2A3B64;
+  --brand-navy-light:#364C7E;
+  --gray-bg:#F8FAFC;
+  --border:#E2E8F0;
+  --text:#1E2B4A;
+  --mid:#4A5568;
+  --light:#94A3B8;
+  --white:#FFFFFF;
+  --green:#16A34A;
+  --green-bg:#F0FDF4;
+  --serif:'Cormorant Garant',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+body{font-family:var(--sans);color:var(--text);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{display:block;}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);padding:0 6%;}
+.ni{max-width:1160px;margin:0 auto;display:flex;align-items:center;height:64px;gap:16px;}
+.nav-logo{display:flex;align-items:center;}
+.nav-logo img{height:36px;width:auto;}
+.nav-divider{width:1px;height:24px;background:var(--border);margin:0 16px;}
+.nav-product{font-size:13px;font-weight:600;color:var(--brand-navy);letter-spacing:.2px;}
+.nav-product small{display:block;font-size:10px;font-weight:400;color:var(--light);line-height:1;margin-top:1px;}
+.nav-cta{margin-left:auto;background:var(--brand-orange);color:#fff;padding:9px 22px;border-radius:7px;font-size:13px;font-weight:600;letter-spacing:.1px;transition:background .18s;}
+.nav-cta:hover{background:var(--brand-orange-dark);}
+
+/* ── HERO ── */
+.hero{background:var(--brand-navy);padding:80px 6% 0;overflow:hidden;}
+.hero-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:end;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(232,93,40,.18);border:1px solid rgba(232,93,40,.35);color:#FDBA8C;border-radius:20px;padding:4px 14px;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-bottom:20px;}
+.hero-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:#FDBA8C;}
+.hero h1{font-family:var(--serif);font-size:48px;font-weight:600;color:#fff;line-height:1.15;margin-bottom:14px;letter-spacing:-.3px;}
+.hero h1 em{color:var(--brand-orange);font-style:normal;}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.6);line-height:1.8;max-width:460px;margin-bottom:30px;}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+.btn-primary{background:var(--brand-orange);color:#fff;padding:12px 28px;border-radius:8px;font-weight:700;font-size:14px;transition:background .18s;}
+.btn-primary:hover{background:var(--brand-orange-dark);}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;padding:12px 28px;border-radius:8px;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,.18);transition:background .18s;}
+.btn-ghost:hover{background:rgba(255,255,255,.14);}
+/* Mockup */
+.hero-mock{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px 12px 0 0;overflow:hidden;margin-top:44px;}
+.mock-bar{background:rgba(255,255,255,.07);padding:9px 14px;display:flex;align-items:center;gap:7px;border-bottom:1px solid rgba(255,255,255,.06);}
+.m-dot{width:9px;height:9px;border-radius:50%;}
+.m-url{flex:1;margin-left:6px;background:rgba(255,255,255,.06);border-radius:4px;padding:3px 12px;font-size:9px;color:rgba(255,255,255,.3);}
+.mock-tabs{display:flex;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.06);overflow-x:auto;}
+.m-tab{padding:8px 14px;font-size:9px;font-weight:500;color:rgba(255,255,255,.35);white-space:nowrap;border-bottom:2px solid transparent;cursor:default;}
+.m-tab.on{color:var(--brand-orange);border-bottom-color:var(--brand-orange);}
+.mock-body{padding:14px;}
+.m-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px;}
+.m-kpi{background:rgba(255,255,255,.06);border-radius:6px;padding:8px 10px;}
+.m-kl{font-size:8px;color:rgba(255,255,255,.3);margin-bottom:2px;}
+.m-kv{font-size:14px;font-weight:700;color:#fff;}
+.m-kv.g{color:#4ADE80;}.m-kv.r{color:#F87171;}
+.m-grid2{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.m-card{background:rgba(255,255,255,.04);border-radius:5px;overflow:hidden;}
+.m-card-h{background:rgba(255,255,255,.07);padding:4px 9px;font-size:8px;font-weight:700;color:rgba(255,255,255,.55);display:flex;justify-content:space-between;}
+.m-row{padding:3px 9px;display:flex;justify-content:space-between;font-size:8px;color:rgba(255,255,255,.45);border-bottom:1px solid rgba(255,255,255,.03);}
+.m-row b{color:#fff;}.m-row .neg{color:#F87171;}
+.m-tot{padding:4px 9px;display:flex;justify-content:space-between;font-size:9px;font-weight:700;color:#fff;background:rgba(232,93,40,.2);}
+
+/* ── BAND ── */
+.brand-band{background:var(--brand-navy-mid);padding:22px 6%;border-top:1px solid rgba(255,255,255,.06);}
+.band-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.band-stat{text-align:center;padding:0 24px;border-right:1px solid rgba(255,255,255,.08);}
+.band-stat:last-child{border-right:none;}
+.band-n{font-family:var(--serif);font-size:30px;font-weight:600;color:#fff;}
+.band-n span{color:var(--brand-orange);}
+.band-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px;}
+
+/* ── SECTION BASE ── */
+.section{padding:80px 6%;}
+.s-inner{max-width:1160px;margin:0 auto;}
+.s-label{font-size:10px;font-weight:700;color:var(--brand-orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+.s-title{font-family:var(--serif);font-size:38px;font-weight:600;color:var(--brand-navy);line-height:1.2;margin-bottom:12px;letter-spacing:-.2px;}
+.s-sub{font-size:15px;color:var(--mid);max-width:580px;line-height:1.75;}
+
+/* ── ONGLETS GRID ── */
+.tabs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px;}
+.t-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 18px;transition:border-color .2s,transform .2s;}
+.t-card:hover{border-color:var(--brand-orange);transform:translateY(-2px);}
+.t-icon{font-size:24px;margin-bottom:12px;}
+.t-num{font-size:9px;font-weight:700;color:var(--brand-orange);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+.t-card h4{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--brand-navy);margin-bottom:5px;}
+.t-card p{font-size:12px;color:var(--mid);line-height:1.55;}
+
+/* ── DRILL-DOWN ── */
+.drill-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.drill-mock{background:var(--brand-navy);border-radius:12px;overflow:hidden;}
+.dm-hdr{background:rgba(255,255,255,.08);padding:8px 14px;font-size:8px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.3px;display:flex;justify-content:space-between;align-items:center;}
+.dm-hdr span:last-child{color:var(--brand-orange);}
+.d-row{padding:5px 14px;display:flex;justify-content:space-between;align-items:center;font-size:9px;color:rgba(255,255,255,.6);border-bottom:1px solid rgba(255,255,255,.04);}
+.d-row.sec{background:rgba(232,93,40,.12);color:var(--brand-orange);font-weight:700;font-size:8px;text-transform:uppercase;letter-spacing:.3px;}
+.d-row b{color:#fff;}.d-row .neg{color:#F87171;}
+.d-row.hl{background:rgba(232,93,40,.07);}
+.d-row.ind{padding-left:26px;font-size:8px;color:rgba(255,255,255,.45);}
+.d-row.sub{background:rgba(255,255,255,.06);font-weight:700;color:#fff;}
+.d-entry{background:rgba(255,255,255,.02);padding:3px 40px;display:flex;justify-content:space-between;font-size:8px;color:rgba(255,255,255,.28);border-bottom:1px solid rgba(255,255,255,.02);}
+.d-entry b{color:rgba(255,255,255,.55);}
+.step-list{display:flex;flex-direction:column;gap:14px;}
+.step{display:flex;align-items:flex-start;gap:12px;}
+.step-num{width:22px;height:22px;border-radius:50%;background:var(--brand-orange);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step p{font-size:13px;color:var(--mid);line-height:1.55;}
+.step p strong{color:var(--brand-navy);}
+
+/* ── FISCAL ── */
+.fiscal-bg{background:var(--brand-navy);padding:80px 6%;}
+.fiscal-bg .s-title{color:#fff;}
+.fiscal-bg .s-sub{color:rgba(255,255,255,.5);margin-bottom:0;}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:44px;}
+.f-cards{display:flex;flex-direction:column;gap:12px;}
+.f-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;}
+.f-card-ico{width:38px;height:38px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.f-card h5{font-family:var(--serif);font-size:15px;font-weight:600;color:#fff;margin-bottom:3px;}
+.f-card p{font-size:11px;color:rgba(255,255,255,.4);line-height:1.55;}
+.f-mock{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden;}
+.f-mhdr{background:rgba(255,255,255,.07);padding:7px 12px;font-size:8px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.3px;}
+.f-mrow{padding:7px 12px;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:center;gap:8px;font-size:9px;}
+.f-num{font-family:monospace;font-size:8px;color:rgba(255,255,255,.25);min-width:36px;}
+.f-lbl{flex:1;color:rgba(255,255,255,.65);}
+.f-ph{padding:5px 12px 7px 22px;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:5px;flex-wrap:wrap;}
+.f-ph-b{font-size:8px;padding:2px 7px;border-radius:3px;font-weight:600;}
+.ph-obs{background:rgba(255,255,255,.08);color:rgba(255,255,255,.45);}
+.ph-avr{background:rgba(232,93,40,.22);color:#FDBA8C;}
+.ph-amr{background:rgba(220,38,38,.2);color:#FCA5A5;}
+.ph-pai{background:rgba(22,163,74,.2);color:#86EFAC;}
+.ph-ct{background:rgba(124,58,237,.2);color:#C4B5FD;}
+.s-ok{font-size:8px;font-weight:700;padding:2px 7px;border-radius:3px;background:rgba(22,163,74,.2);color:#86EFAC;}
+.s-urg{font-size:8px;font-weight:700;padding:2px 7px;border-radius:3px;background:rgba(220,38,38,.18);color:#FCA5A5;}
+.s-pen{font-size:8px;padding:2px 7px;border-radius:3px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.4);}
+
+/* ── CONFORMITE ── */
+.conf-wrap{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:44px;}
+.conf-score{background:var(--brand-navy);padding:18px 22px;display:flex;align-items:center;gap:20px;}
+.conf-pct{font-family:var(--serif);font-size:38px;font-weight:600;color:#4ADE80;line-height:1;}
+.conf-bar-wrap{flex:1;}
+.conf-bar-lbl{font-size:12px;font-weight:600;color:#fff;margin-bottom:6px;}
+.conf-bar-track{background:rgba(255,255,255,.15);border-radius:3px;height:7px;}
+.conf-bar-fill{height:100%;border-radius:3px;background:#4ADE80;}
+.conf-meta{font-size:10px;color:rgba(255,255,255,.4);text-align:right;}
+.conf-svc-hdr{font-size:9px;font-weight:700;color:var(--brand-orange);text-transform:uppercase;letter-spacing:.5px;padding:7px 20px;background:var(--brand-orange-light);border-left:3px solid var(--brand-orange);}
+.conf-row{padding:9px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
+.conf-nm{flex:1;font-size:12px;font-weight:600;color:var(--brand-navy);}
+.conf-per{font-size:8px;font-weight:700;background:var(--brand-orange-light);color:var(--brand-orange);padding:2px 7px;border-radius:3px;}
+.st-ok{font-size:9px;font-weight:700;color:var(--green);background:var(--green-bg);padding:2px 9px;border-radius:4px;}
+.st-ko{font-size:9px;font-weight:700;color:#DC2626;background:#FEF2F2;padding:2px 9px;border-radius:4px;}
+.st-na{font-size:9px;color:var(--light);background:var(--gray-bg);padding:2px 9px;border-radius:4px;}
+.conf-date{font-size:10px;color:var(--mid);}
+.conf-proof{font-size:10px;color:var(--brand-orange);}
+
+/* ── RATIOS ── */
+.r-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.r-list{display:flex;flex-direction:column;gap:12px;}
+.r-item{background:var(--gray-bg);border-radius:8px;padding:14px 16px;}
+.r-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.r-lbl{font-size:12px;font-weight:600;color:var(--brand-navy);}
+.r-val{font-size:17px;font-weight:800;}
+.r-val.ok{color:var(--green);}.r-val.warn{color:#D97706;}.r-val.ko{color:#DC2626;}
+.r-track{background:#E2E8F0;border-radius:3px;height:5px;position:relative;}
+.r-fill{height:100%;border-radius:3px;}
+.r-thr{position:absolute;top:-2px;width:2px;height:9px;background:var(--brand-navy);border-radius:1px;}
+.r-sub{font-size:10px;color:var(--light);margin-top:4px;}
+
+/* ── EXPORT AVANTAGES ── */
+.export-bg{background:var(--brand-orange-light);padding:80px 6%;}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.exp-points{display:flex;flex-direction:column;gap:16px;margin-top:28px;}
+.exp-point{display:flex;align-items:flex-start;gap:12px;}
+.exp-check{width:22px;height:22px;border-radius:50%;background:var(--brand-orange);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.exp-point h5{font-size:13px;font-weight:700;color:var(--brand-navy);margin-bottom:2px;}
+.exp-point p{font-size:12px;color:var(--mid);}
+/* Visual Export */
+.exp-visual{background:var(--brand-navy);border-radius:14px;overflow:hidden;padding:22px;}
+.ev-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.ev-logo{height:32px;width:auto;}
+.ev-txt h4{font-family:var(--serif);font-size:15px;font-weight:600;color:#fff;}
+.ev-txt p{font-size:10px;color:rgba(255,255,255,.4);}
+.ev-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;}
+.ev-tab{font-size:8px;font-weight:600;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.45);}
+.ev-tab.on{background:var(--brand-orange);color:#fff;}
+.ev-content{background:rgba(255,255,255,.06);border-radius:9px;padding:14px;}
+.ev-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:12px;}
+.ev-kpi{background:rgba(255,255,255,.07);border-radius:5px;padding:8px 10px;}
+.ev-kl{font-size:8px;color:rgba(255,255,255,.3);}
+.ev-kv{font-size:13px;font-weight:700;color:#fff;}
+.ev-kv.g{color:#4ADE80;}.ev-kv.r{color:#F87171;}
+.ev-score{background:rgba(255,255,255,.07);border-radius:6px;padding:10px 12px;margin-top:0;}
+.ev-score-label{font-size:8px;font-weight:700;color:rgba(255,255,255,.35);margin-bottom:5px;}
+.ev-score-row{display:flex;align-items:center;gap:10px;}
+.ev-score-pct{font-family:var(--serif);font-size:22px;font-weight:600;color:#4ADE80;}
+.ev-score-bar{flex:1;background:rgba(255,255,255,.12);border-radius:3px;height:5px;}
+.ev-score-fill{width:78%;height:100%;border-radius:3px;background:#4ADE80;}
+.ev-footer{font-size:8px;color:rgba(255,255,255,.2);text-align:center;margin-top:12px;}
+
+/* ── CTA ── */
+.cta-section{background:var(--brand-navy);padding:80px 6%;text-align:center;}
+.cta-inner{max-width:680px;margin:0 auto;}
+.cta-logo{margin:0 auto 28px;height:48px;width:auto;}
+.cta-inner h2{font-family:var(--serif);font-size:40px;font-weight:600;color:#fff;margin-bottom:14px;letter-spacing:-.2px;}
+.cta-inner p{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:32px;line-height:1.75;}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand-orange);color:#fff;padding:14px 34px;border-radius:9px;font-weight:700;font-size:15px;transition:background .18s;}
+.cta-btn:hover{background:var(--brand-orange-dark);}
+.cta-contact{margin-top:18px;font-size:13px;color:rgba(255,255,255,.25);}
+.cta-contact a{color:rgba(255,255,255,.45);}
+.cta-contact a:hover{color:#fff;}
+
+/* ── FOOTER ── */
+footer{background:#0F1929;padding:24px 6%;}
+.f-inner{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+.f-logo img{height:28px;width:auto;opacity:.5;filter:brightness(0) invert(1);}
+footer p{font-size:11px;color:rgba(255,255,255,.2);}
+footer span{font-size:11px;color:var(--brand-orange);opacity:.7;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+.hero-inner,.drill-grid,.f-grid,.r-grid,.exp-grid{grid-template-columns:1fr;}
+.hero-mock,.exp-visual{display:none;}
+.tabs-grid{grid-template-columns:repeat(2,1fr);}
+.band-inner{grid-template-columns:repeat(2,1fr);}
+.band-stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding:12px 0;}
+.hero h1{font-size:34px;}
+.s-title{font-size:28px;}
+.m-kpis{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="ni">
+    <div class="nav-logo" style="display:flex;align-items:center;gap:10px;">
+      <div style="width:34px;height:34px;background:var(--brand-orange);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <span style="color:#fff;font-size:17px;font-weight:800;font-family:var(--serif);letter-spacing:-1px;">M</span>
+      </div>
+      <div style="line-height:1.15;">
+        <div style="font-family:var(--serif);font-size:16px;font-weight:600;color:var(--brand-navy);letter-spacing:.5px;">MASHINI</div>
+        <div style="font-size:10px;font-weight:500;color:var(--light);letter-spacing:.3px;">&amp; ASSOCIÉS</div>
+      </div>
+    </div>
+    <div class="nav-divider"></div>
+    <div class="nav-product">
+      Growth Desk
+      <small>Portail de reporting financier</small>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:5px;background:var(--brand-orange-light);border:1px solid var(--brand-orange-mid);color:var(--brand-orange);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:600;letter-spacing:.2px;white-space:nowrap;">
+      <span style="width:5px;height:5px;border-radius:50%;background:var(--brand-orange);display:inline-block;"></span>
+      Outil développé en interne
+    </div>
+    <a href="#contact" class="nav-cta">Contacter le cabinet →</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Rapport financier client · SYSCOHADA / OHADA</div>
+      <h1>Votre situation financière, <em>claire et complète</em></h1>
+      <p class="hero-sub">Votre cabinet MASHINI & Associés vous remet un rapport Growth Desk : états financiers SYSCOHADA, suivi fiscal, conformité administrative — tout en un document interactif que vous ouvrez dans votre navigateur.</p>
+      <div class="hero-btns">
+        <a href="#contenu" class="btn-primary">Voir le contenu du rapport →</a>
+        <a href="#contact" class="btn-ghost">Contacter le cabinet</a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-mock">
+        <div class="mock-bar">
+          <div class="m-dot" style="background:#FF5F57;"></div>
+          <div class="m-dot" style="background:#FEBC2E;"></div>
+          <div class="m-dot" style="background:#28C840;"></div>
+          <div class="m-url">Growth DESK – Votre Entreprise – Exercice 2026 · CONFIDENTIEL</div>
+        </div>
+        <div class="mock-tabs">
+          <div class="m-tab">📊 Vue d'ensemble</div>
+          <div class="m-tab on">⚖ Bilan</div>
+          <div class="m-tab">📈 Résultat</div>
+          <div class="m-tab">💧 Trésorerie</div>
+          <div class="m-tab">📉 Ratios</div>
+          <div class="m-tab">📁 Fiscal</div>
+          <div class="m-tab">✅ Conformité</div>
+        </div>
+        <div class="mock-body">
+          <div class="m-kpis">
+            <div class="m-kpi"><div class="m-kl">Chiffre d'affaires</div><div class="m-kv">284,5 M</div></div>
+            <div class="m-kpi"><div class="m-kl">Résultat net</div><div class="m-kv g">+18,4 M</div></div>
+            <div class="m-kpi"><div class="m-kl">Total Actif</div><div class="m-kv">295,8 M</div></div>
+            <div class="m-kpi"><div class="m-kl">Bilan</div><div class="m-kv g">✓ Équilibré</div></div>
+          </div>
+          <div class="m-grid2">
+            <div class="m-card">
+              <div class="m-card-h"><span>ACTIF</span><span style="color:#E85D28;">295 760</span></div>
+              <div class="m-row"><span>Actif immobilisé net</span><b>64 797</b></div>
+              <div class="m-row"><span>Dépréciations stocks (−)</span><b class="neg">−14 200</b></div>
+              <div class="m-row"><span>Créances nettes</span><b>153 663</b></div>
+              <div class="m-row"><span>Dépréciations créances (−)</span><b class="neg">−31 677</b></div>
+              <div class="m-row"><span>Trésorerie active</span><b>24 100</b></div>
+              <div class="m-tot"><span>TOTAL ACTIF</span><span>295 760</span></div>
+            </div>
+            <div class="m-card">
+              <div class="m-card-h"><span>PASSIF</span><span style="color:#E85D28;">295 760</span></div>
+              <div class="m-row"><span>Capitaux propres</span><b>180 840</b></div>
+              <div class="m-row"><span>Résultat exercice</span><b>18 400</b></div>
+              <div class="m-row"><span>Dettes long terme</span><b>61 317</b></div>
+              <div class="m-row"><span>Passif circulant</span><b>26 985</b></div>
+              <div class="m-row"><span>Trésorerie passive</span><b>8 218</b></div>
+              <div class="m-tot"><span>TOTAL PASSIF</span><span>295 760</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── BAND ── -->
+<div class="brand-band">
+  <div class="band-inner">
+    <div class="band-stat"><div class="band-n">8<span>+</span></div><div class="band-l">Onglets interactifs</div></div>
+    <div class="band-stat"><div class="band-n">100<span>%</span></div><div class="band-l">Normes OHADA</div></div>
+    <div class="band-stat"><div class="band-n">N/N<span>-1</span></div><div class="band-l">Comparaison périodes</div></div>
+    <div class="band-stat"><div class="band-n"><span>∞</span></div><div class="band-l">Drill-down écritures</div></div>
+  </div>
+</div>
+
+<!-- ── ONGLETS ── -->
+<div class="section" id="contenu" style="background:var(--gray-bg);">
+  <div class="s-inner">
+    <div class="s-label">Ce que vous recevez</div>
+    <h2 class="s-title">8 onglets interactifs dans un seul fichier</h2>
+    <p class="s-sub">Votre rapport s'ouvre directement dans votre navigateur, sans installation. Imprimable en PDF en un clic.</p>
+    <div class="tabs-grid">
+      <div class="t-card"><div class="t-icon">📊</div><div class="t-num">Onglet 1</div><h4>Vue d'ensemble</h4><p>Vos 4 KPIs clés, structure des charges, top 5 clients</p></div>
+      <div class="t-card"><div class="t-icon">⚖</div><div class="t-num">Onglet 2</div><h4>Bilan SYSCOHADA</h4><p>Actif / Passif complet avec comparaison N/N-1 et drill-down</p></div>
+      <div class="t-card"><div class="t-icon">📈</div><div class="t-num">Onglet 3</div><h4>Compte de résultat</h4><p>VA, EBE, REX, résultat net — cascade complète SYSCOHADA</p></div>
+      <div class="t-card"><div class="t-icon">💧</div><div class="t-num">Onglet 4</div><h4>Trésorerie</h4><p>Fonds de roulement, BFR, trésorerie nette, cash flow</p></div>
+      <div class="t-card"><div class="t-icon">📉</div><div class="t-num">Onglet 5</div><h4>Ratios financiers</h4><p>12 ratios avec jauges visuelles et seuils d'alerte</p></div>
+      <div class="t-card"><div class="t-icon">📋</div><div class="t-num">Onglet 6</div><h4>Balances âgées</h4><p>BACD, BACC, BAFC, BAFD avec réconciliation GL</p></div>
+      <div class="t-card"><div class="t-icon">📁</div><div class="t-num">Onglet 7</div><h4>Fiscal & Social</h4><p>Déclarations, contrôles fiscaux, rappels, obligations</p></div>
+      <div class="t-card"><div class="t-icon">✅</div><div class="t-num">Onglet 8</div><h4>Conformité</h4><p>Score conformité, obligations légales, preuves</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DRILL-DOWN ── -->
+<div class="section" style="background:var(--white);">
+  <div class="s-inner">
+    <div class="drill-grid">
+      <div>
+        <div class="s-label">Bilan interactif</div>
+        <h2 class="s-title">Cliquez sur n'importe quelle ligne</h2>
+        <p class="s-sub" style="margin-bottom:28px;">Chaque ligne du bilan s'ouvre sur les comptes qui la composent. Cliquez à nouveau sur un compte pour voir toutes ses écritures comptables.</p>
+        <div class="step-list">
+          <div class="step"><div class="step-num">1</div><p>Cliquez sur une ligne agrégée — ex : <strong>Clients 153 663</strong></p></div>
+          <div class="step"><div class="step-num">2</div><p>Les comptes s'affichent : <strong>411100, 411200, 416200…</strong></p></div>
+          <div class="step"><div class="step-num">3</div><p>Cliquez sur un compte pour voir ses <strong>écritures individuelles du Grand Livre</strong></p></div>
+        </div>
+      </div>
+      <div class="drill-mock">
+        <div class="dm-hdr"><span>Actif circulant — Créances</span><span>153 663</span></div>
+        <div class="d-row sec"><span>ACTIF CIRCULANT — CRÉANCES</span></div>
+        <div class="d-row"><span>▶ Fournisseurs débiteurs</span><b>2 184</b></div>
+        <div class="d-row hl"><span>▼ <span style="color:#E85D28;">Clients</span></span><b>185 340</b></div>
+        <div class="d-row ind"><span>411100 — Clients ordinaires</span><b>102 450</b></div>
+        <div class="d-row ind hl"><span>▼ <span style="color:#E85D28;">411200 — Sté Minière SARL</span></span><b>82 890</b></div>
+        <div class="d-entry"><span>01/03/26 — Fact. 2026-042</span><b>82 890</b></div>
+        <div class="d-entry"><span>15/02/26 — Fact. 2026-031</span><b>—</b></div>
+        <div class="d-row ind"><span>416200 — Créances douteuses</span><b>31 677</b></div>
+        <div class="d-row" style="color:#F87171;"><span>▶ Dépréciations créances (−)</span><span>−31 677</span></div>
+        <div class="d-row sub"><span>Total créances (net)</span><b>153 663</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FISCAL ── -->
+<div class="fiscal-bg">
+  <div class="s-inner">
+    <div class="s-label" style="color:#FDBA8C;">Suivi fiscal & social</div>
+    <h2 class="s-title">Toute votre situation fiscale en un coup d'œil</h2>
+    <p class="s-sub">Déclarations, contrôles fiscaux avec toutes leurs phases, rappels et obligations — avec statuts et documents Sharepoint.</p>
+    <div class="f-grid">
+      <div class="f-cards">
+        <div class="f-card">
+          <div class="f-card-ico" style="background:rgba(22,163,74,.2);">📋</div>
+          <div><h5>Déclarations fiscales</h5><p>TVA, IS, IRPP, CNSS, INPP, ONEM — toutes vos déclarations avec date d'échéance et statut</p></div>
+        </div>
+        <div class="f-card">
+          <div class="f-card-ico" style="background:rgba(220,38,38,.18);">🔍</div>
+          <div><h5>Dossiers de contrôle fiscal</h5><p>Note d'observation, avis de redressement, AMR, note de perception — chaque phase avec paiements et contestations</p></div>
+        </div>
+        <div class="f-card">
+          <div class="f-card-ico" style="background:rgba(232,93,40,.18);">⚠</div>
+          <div><h5>Rappels & poursuites</h5><p>Mise en demeure, saisie-arrêt — avec délais de réponse et liens documents</p></div>
+        </div>
+      </div>
+      <div class="f-mock">
+        <div class="f-mhdr">Contrôles fiscaux</div>
+        <div class="f-mrow"><span class="f-num">C-001</span><span class="f-lbl" style="font-weight:600;">DGI — Contrôle TVA 2024</span><span class="s-urg">En cours</span></div>
+        <div class="f-ph">
+          <span class="f-ph-b ph-obs">✓ Note d'observation</span>
+          <span class="f-ph-b ph-avr">⚠ Avis redressement : 8 400 000</span>
+          <span class="f-ph-b ph-amr">📬 AMR reçu</span>
+          <span class="f-ph-b ph-pai">💳 Paiement enregistré</span>
+        </div>
+        <div class="f-mrow"><span class="f-num">C-002</span><span class="f-lbl" style="font-weight:600;">CNSS — Cotisations</span><span class="s-urg">Urgent</span></div>
+        <div class="f-ph">
+          <span class="f-ph-b ph-avr">⚠ Avis de redressement</span>
+          <span class="f-ph-b ph-ct">⚖ Contestation en cours</span>
+        </div>
+        <div class="f-mhdr" style="margin-top:4px;">Prochaines déclarations</div>
+        <div class="f-mrow"><span class="f-num">D-018</span><span class="f-lbl">TVA Mensuelle — Mars 2026</span><span class="s-ok">✓ Traité</span></div>
+        <div class="f-mrow"><span class="f-num">D-019</span><span class="f-lbl">CNSS — Cotisations T1 2026</span><span class="s-urg">7 jours</span></div>
+        <div class="f-mrow"><span class="f-num">D-020</span><span class="f-lbl">IS — Acompte provisionnel</span><span class="s-pen">En attente</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONFORMITE ── -->
+<div class="section" style="background:var(--gray-bg);">
+  <div class="s-inner">
+    <div class="s-label">Conformité administrative</div>
+    <h2 class="s-title">Votre score de conformité légale</h2>
+    <p class="s-sub">Votre cabinet suit l'ensemble de vos obligations légales et administratives. Votre rapport affiche votre score en temps réel avec les preuves de conformité.</p>
+    <div class="conf-wrap">
+      <div class="conf-score">
+        <div class="conf-pct">78%</div>
+        <div class="conf-bar-wrap">
+          <div class="conf-bar-lbl">14 obligations conformes sur 18 applicables</div>
+          <div class="conf-bar-track"><div class="conf-bar-fill" style="width:78%;"></div></div>
+        </div>
+        <div class="conf-meta">18 obligations<br>au total · 2 non applicables</div>
+      </div>
+      <div class="conf-svc-hdr">Direction Générale des Impôts (DGI)</div>
+      <div class="conf-row"><span class="conf-nm">Déclaration TVA mensuelle</span><span class="conf-per">Mensuel</span><span class="st-ok">✓ Conforme</span><span class="conf-date">31/03/2026</span><span class="conf-proof">📄 Preuve</span></div>
+      <div class="conf-row"><span class="conf-nm">Dépôt états financiers — Ministère Économie</span><span class="conf-per">Annuel</span><span class="st-ko">✗ En attente</span></div>
+      <div class="conf-row"><span class="conf-nm">Patente professionnelle</span><span class="conf-per">Annuel</span><span class="st-ok">✓ Conforme</span><span class="conf-date">15/01/2026</span><span class="conf-proof">📄 Preuve</span></div>
+      <div class="conf-svc-hdr">CNSS — Sécurité sociale</div>
+      <div class="conf-row"><span class="conf-nm">Cotisations sociales trimestrielles</span><span class="conf-per">Trimestriel</span><span class="st-ok">✓ Conforme</span><span class="conf-date">31/03/2026</span><span class="conf-proof">💳 Paiement + 📄</span></div>
+      <div class="conf-row"><span class="conf-nm">Déclaration annuelle de salaires</span><span class="conf-per">Annuel</span><span class="st-na">N/A</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── RATIOS ── -->
+<div class="section" style="background:var(--white);">
+  <div class="s-inner">
+    <div class="r-grid">
+      <div>
+        <div class="s-label">Ratios financiers</div>
+        <h2 class="s-title">Vos indicateurs de santé financière</h2>
+        <p class="s-sub">Comparez votre performance aux seuils SYSCOHADA. Chaque ratio est accompagné d'une jauge visuelle et d'une interprétation claire.</p>
+      </div>
+      <div class="r-list">
+        <div class="r-item">
+          <div class="r-top"><span class="r-lbl">Liquidité générale</span><span class="r-val ok">1,42×</span></div>
+          <div class="r-track"><div class="r-fill" style="width:57%;background:#16A34A;"></div><div class="r-thr" style="left:40%;"></div></div>
+          <div class="r-sub">Actif circulant / Passif circ. — seuil ≥ 1× · En bonne santé</div>
+        </div>
+        <div class="r-item">
+          <div class="r-top"><span class="r-lbl">Taux CP / Actif</span><span class="r-val warn">16,3%</span></div>
+          <div class="r-track"><div class="r-fill" style="width:20%;background:#D97706;"></div><div class="r-thr" style="left:25%;"></div></div>
+          <div class="r-sub">Capitaux propres / Total actif — seuil ≥ 20% · À surveiller</div>
+        </div>
+        <div class="r-item">
+          <div class="r-top"><span class="r-lbl">Marge nette</span><span class="r-val ok">6,5%</span></div>
+          <div class="r-track"><div class="r-fill" style="width:54%;background:#16A34A;"></div><div class="r-thr" style="left:0%;"></div></div>
+          <div class="r-sub">Résultat net / CA — seuil ≥ 0% · Bénéficiaire</div>
+        </div>
+        <div class="r-item">
+          <div class="r-top"><span class="r-lbl">Délai clients (DSO)</span><span class="r-val warn">80 jours</span></div>
+          <div class="r-track"><div class="r-fill" style="width:66%;background:#D97706;"></div><div class="r-thr" style="left:50%;"></div></div>
+          <div class="r-sub">Délai recouvrement moyen — seuil ≤ 60 j · Recouvrement à améliorer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── EXPORT ── -->
+<div class="export-bg">
+  <div class="s-inner">
+    <div class="exp-grid">
+      <div>
+        <div class="s-label">Rapport prêt à l'emploi</div>
+        <h2 class="s-title">Un seul fichier, tout à portée de main</h2>
+        <p class="s-sub">Votre rapport Growth Desk est un fichier HTML autonome. Aucune application à installer, aucune connexion requise.</p>
+        <div class="exp-points">
+          <div class="exp-point">
+            <div class="exp-check">✓</div>
+            <div><h5>Aucune installation requise</h5><p>Double-cliquez sur le fichier — s'ouvre dans Chrome, Edge ou Firefox</p></div>
+          </div>
+          <div class="exp-point">
+            <div class="exp-check">✓</div>
+            <div><h5>Imprimable en un clic</h5><p>Bouton "Imprimer / PDF" intégré pour archivage ou présentation</p></div>
+          </div>
+          <div class="exp-point">
+            <div class="exp-check">✓</div>
+            <div><h5>Données confidentielles protégées</h5><p>Votre rapport ne transite par aucun serveur — tout reste local</p></div>
+          </div>
+          <div class="exp-point">
+            <div class="exp-check">✓</div>
+            <div><h5>Comparaison N / N-1</h5><p>Vos chiffres actuels vs période précédente en vis-à-vis dans tous les états</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-visual">
+        <div class="ev-head">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:28px;height:28px;background:var(--brand-orange);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="color:#fff;font-size:14px;font-weight:800;font-family:var(--serif);">M</span>
+            </div>
+            <div style="line-height:1.2;">
+              <div style="font-family:var(--serif);font-size:13px;font-weight:600;color:#fff;letter-spacing:.4px;">MASHINI</div>
+              <div style="font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.3px;">&amp; ASSOCIÉS</div>
+            </div>
+          </div>
+          <div class="ev-txt">
+            <h4>Votre rapport Growth Desk</h4>
+            <p>Exercice 2026 · CONFIDENTIEL</p>
+          </div>
+        </div>
+        <div class="ev-tabs">
+          <span class="ev-tab on">📊 Vue d'ensemble</span>
+          <span class="ev-tab">⚖ Bilan</span>
+          <span class="ev-tab">📈 Résultat</span>
+          <span class="ev-tab">💧 Tréso.</span>
+          <span class="ev-tab">📉 Ratios</span>
+          <span class="ev-tab">📋 B. Âgées</span>
+          <span class="ev-tab">📁 Fiscal</span>
+          <span class="ev-tab">✅ Conformité</span>
+        </div>
+        <div class="ev-content">
+          <div class="ev-kpis">
+            <div class="ev-kpi"><div class="ev-kl">Chiffre d'affaires</div><div class="ev-kv">284,5 M</div></div>
+            <div class="ev-kpi"><div class="ev-kl">Résultat net</div><div class="ev-kv g">+18,4 M</div></div>
+            <div class="ev-kpi"><div class="ev-kl">EBE</div><div class="ev-kv">42,1 M</div></div>
+            <div class="ev-kpi"><div class="ev-kl">Trésorerie nette</div><div class="ev-kv r">−8,2 M</div></div>
+          </div>
+          <div class="ev-score">
+            <div class="ev-score-label">Conformité administrative</div>
+            <div class="ev-score-row">
+              <div class="ev-score-pct">78%</div>
+              <div class="ev-score-bar"><div class="ev-score-fill"></div></div>
+              <span style="font-size:10px;color:rgba(255,255,255,.3);">14/18</span>
+            </div>
+          </div>
+          <div class="ev-footer">Établi par Cabinet MASHINI & Associés · Growth Desk Portail</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;">
+      <div style="width:52px;height:52px;background:var(--brand-orange);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <span style="color:#fff;font-size:26px;font-weight:800;font-family:var(--serif);">M</span>
+      </div>
+      <div style="text-align:left;line-height:1.2;">
+        <div style="font-family:var(--serif);font-size:22px;font-weight:600;color:#fff;letter-spacing:.6px;">MASHINI</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.5px;">&amp; ASSOCIÉS</div>
+      </div>
+    </div>
+    <h2>Votre prochain rapport est prêt</h2>
+    <p>Contactez votre cabinet MASHINI & Associés pour recevoir votre rapport Growth Desk — états financiers SYSCOHADA, suivi fiscal et score de conformité complets.</p>
+    <a href="mailto:joel.mashini@mashiniassocies.com?subject=Rapport Growth Desk" class="cta-btn">
+      ✉ Contacter le cabinet →
+    </a>
+    <p style="margin-top:20px;font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.3px;">Growth Desk est un outil de reporting développé en interne par le Cabinet MASHINI &amp; Associés.</p>
+    <p class="cta-contact">
+      <a href="mailto:joel.mashini@mashiniassocies.com">joel.mashini@mashiniassocies.com</a>
+      &nbsp;·&nbsp; Lubumbashi, République Démocratique du Congo
+    </p>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="f-inner">
+    <div style="display:flex;align-items:center;gap:8px;opacity:.5;">
+      <div style="width:26px;height:26px;background:var(--brand-orange);border-radius:5px;display:flex;align-items:center;justify-content:center;">
+        <span style="color:#fff;font-size:13px;font-weight:800;font-family:var(--serif);">M</span>
+      </div>
+      <div style="line-height:1.15;">
+        <div style="font-family:var(--serif);font-size:13px;font-weight:600;color:#fff;letter-spacing:.4px;">MASHINI</div>
+        <div style="font-size:9px;color:rgba(255,255,255,.6);letter-spacing:.3px;">&amp; ASSOCIÉS</div>
+      </div>
+    </div>
+    <p>© 2026 Cabinet MASHINI &amp; Associés · Growth Desk — outil de reporting développé en interne · Tous droits réservés</p>
+    <span>Normes OHADA · SYSCOHADA</span>
+  </div>
+</footer>
+
+</body>
+</html>

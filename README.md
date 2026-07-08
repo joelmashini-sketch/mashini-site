@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site web Mashini & Associés
 
-## Getting Started
+Site vitrine premium du cabinet Mashini & Associés (audit, expertise comptable,
+conseil financier et intelligence économique), construit avec Next.js (App
+Router) + TypeScript + Tailwind CSS, exporté en site statique pour un
+déploiement sur Azure Static Web Apps.
 
-First, run the development server:
+## Tester en local
+
+Prérequis : [Node.js](https://nodejs.org) 20+ et npm.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000). Les pages se
+rechargent automatiquement à chaque modification.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> **Note technique** : les scripts `dev`/`build`/`start` invoquent Next.js via
+> `node ./node_modules/next/dist/bin/next ...` plutôt que `next dev` direct.
+> C'est nécessaire car le nom du dossier OneDrive contient un `&`
+> (« …MASHINI & Associés… »), ce qui casse les raccourcis (`.cmd`/`.ps1`)
+> générés par npm dans `node_modules/.bin` sous Windows. Le résultat est
+> strictement identique, `npm run dev` et `npm run build` fonctionnent
+> normalement.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Pages disponibles : Accueil (`/`), Cabinet (`/cabinet`), Services
+(`/services` et `/services/[slug]` pour chacun des 8 services), Economic
+Intelligence (`/economic-intelligence` et ses articles), Investment Score
+(`/investment-score`), Growth Desk (`/growth-desk`), Contact (`/contact`).
 
-## Learn More
+Le contenu (services, articles, équipe, score) est centralisé dans
+[`src/lib/data.ts`](src/lib/data.ts) — modifiable sans toucher au code des
+pages.
 
-To learn more about Next.js, take a look at the following resources:
+## Vérifier le build de production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Cette commande génère un export 100 % statique dans le dossier `out/`
+(`output: "export"` dans `next.config.ts`). Pour prévisualiser l'export tel
+qu'il sera servi en production :
 
-## Deploy on Vercel
+```bash
+npx serve out
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Déploiement sur Azure Static Web Apps
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Le projet est prêt pour Azure Static Web Apps :
+
+- `next.config.ts` : export statique (`output: "export"`), images non
+  optimisées (pas de serveur d'image nécessaire), URLs avec slash final.
+- `staticwebapp.config.json` : routage, page 404 personnalisée, headers de
+  cache et de sécurité.
+- `.github/workflows/azure-static-web-apps.yml` : pipeline de build et
+  déploiement automatique à chaque push sur `main`.
+
+### Étapes de mise en production
+
+1. **Pousser le projet sur GitHub** (créer un dépôt, ex. `mashini-site`, et y
+   pousser ce dossier).
+2. **Créer la ressource Azure Static Web Apps** :
+   - Portail Azure → *Créer une ressource* → *Static Web App*.
+   - Plan : *Standard* (ou *Free* pour démarrer).
+   - Source : *GitHub*, sélectionner le dépôt et la branche `main`.
+   - Paramètres de build :
+     - Build Presets : `Next.js (Static HTML Export)` ou `Custom`
+     - App location : `/`
+     - Output location : `out`
+   - Azure génère automatiquement un fichier de workflow GitHub Actions et le
+     secret `AZURE_STATIC_WEB_APPS_API_TOKEN` dans le dépôt. Vous pouvez soit
+     garder celui généré par Azure, soit utiliser celui fourni dans ce projet
+     (`.github/workflows/azure-static-web-apps.yml`) en collant le token
+     d'API dans **Settings → Secrets and variables → Actions** du dépôt
+     GitHub sous le nom `AZURE_STATIC_WEB_APPS_API_TOKEN`.
+3. **Domaine personnalisé** : dans la ressource Static Web App → *Domaines
+   personnalisés*, ajouter `www.mashini-associes.com` (ou le domaine choisi)
+   et suivre la validation DNS (CNAME).
+4. Chaque `git push` sur `main` redéploie automatiquement le site.
+
+### Alternative en ligne de commande (Azure CLI)
+
+```bash
+az login
+az staticwebapp create \
+  --name mashini-site \
+  --resource-group <votre-resource-group> \
+  --source https://github.com/<votre-org>/mashini-site \
+  --location "West Europe" \
+  --branch main \
+  --app-location "/" \
+  --output-location "out" \
+  --login-with-github
+```
+
+## Prochaines étapes suggérées
+
+- Brancher le formulaire de contact sur un service d'envoi d'email (ex. Azure
+  Function + SendGrid/Resend, ou Power Automate) — actuellement le formulaire
+  est statique côté front.
+- Remplacer les visuels SVG abstraits par des photographies professionnelles
+  une fois disponibles.
+- Activer la version anglaise (`EN`) : l'architecture du contenu
+  (`src/lib/data.ts`) est conçue pour accueillir une traduction sans refonte.
+- Brancher Google Analytics (ajout d'un script dans `src/app/layout.tsx`).
