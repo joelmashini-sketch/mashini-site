@@ -57,7 +57,11 @@
     "messageSent": "信息已发送！",
     "messageError": "发生错误，请重试或直接发送电子邮件与我们联系。",
     "required": "必填",
-    "or": "或"
+    "or": "或",
+    "error404": "错误 404",
+    "pageNotFound": "页面未找到",
+    "pageNotFoundDesc": "您正在查找的页面不存在或已被移动。",
+    "backHome": "返回首页"
   },
   "nav": {
     "sectors": "行业",
@@ -312,7 +316,18 @@
     "expertsDesc": "欢迎与我们讨论您的财务、税务或监管挑战。",
     "scheduleBtn": "预约会面",
     "ctaFinal": "将贵公司的财务职能提升至新水平",
-    "ctaFinalSub": "我们的专家随时为您探讨挑战与机遇。"
+    "ctaFinalSub": "我们的专家随时为您探讨挑战与机遇。",
+    "challengesBannerEyebrow": "主要挑战",
+    "challengesBannerTitle": "行业挑战",
+    "challengesEyebrow": "行业课题",
+    "challengesTitle": "我们帮助应对的挑战",
+    "accompagnement": "我们的支持",
+    "clienteleEyebrow": "客户群体",
+    "nosClients": "我们的客户",
+    "weAccompanyNotably": "我们重点服务于：",
+    "normesEyebrow": "标准",
+    "referentiels": "掌握的参考框架",
+    "refDesc": "我们的团队遵循以下主要适用框架开展工作："
   },
   "talents": {
     "eyebrow": "加入团队",

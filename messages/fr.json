@@ -57,7 +57,11 @@
     "messageSent": "Message envoyé !",
     "messageError": "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement par email.",
     "required": "requis",
-    "or": "ou"
+    "or": "ou",
+    "error404": "Erreur 404",
+    "pageNotFound": "Page introuvable",
+    "pageNotFoundDesc": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
   },
   "nav": {
     "sectors": "Secteurs",
@@ -312,7 +316,18 @@
     "expertsDesc": "Échangeons sur vos enjeux financiers, fiscaux ou réglementaires.",
     "scheduleBtn": "Planifier un entretien",
     "ctaFinal": "Accompagnez votre entreprise vers une fonction finance plus performante",
-    "ctaFinalSub": "Nos experts sont à votre disposition pour échanger sur vos enjeux."
+    "ctaFinalSub": "Nos experts sont à votre disposition pour échanger sur vos enjeux.",
+    "challengesBannerEyebrow": "Enjeux clés",
+    "challengesBannerTitle": "Les défis du secteur",
+    "challengesEyebrow": "Enjeux sectoriels",
+    "challengesTitle": "Les défis que nous aidons à relever",
+    "accompagnement": "Notre accompagnement",
+    "clienteleEyebrow": "Clientèle",
+    "nosClients": "Nos clients",
+    "weAccompanyNotably": "Nous accompagnons notamment :",
+    "normesEyebrow": "Normes",
+    "referentiels": "Référentiels maîtrisés",
+    "refDesc": "Nos équipes interviennent dans le respect des principaux référentiels applicables :"
   },
   "talents": {
     "eyebrow": "Rejoignez l'équipe",

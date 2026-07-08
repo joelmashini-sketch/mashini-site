@@ -57,7 +57,11 @@
     "messageSent": "Message sent!",
     "messageError": "An error occurred. Please try again or contact us directly by email.",
     "required": "required",
-    "or": "or"
+    "or": "or",
+    "error404": "Error 404",
+    "pageNotFound": "Page not found",
+    "pageNotFoundDesc": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to home"
   },
   "nav": {
     "sectors": "Sectors",
@@ -312,7 +316,18 @@
     "expertsDesc": "Let's discuss your financial, tax or regulatory challenges.",
     "scheduleBtn": "Schedule a meeting",
     "ctaFinal": "Take your company's finance function to the next level",
-    "ctaFinalSub": "Our experts are available to discuss your challenges."
+    "ctaFinalSub": "Our experts are available to discuss your challenges.",
+    "challengesBannerEyebrow": "Key challenges",
+    "challengesBannerTitle": "Sector challenges",
+    "challengesEyebrow": "Sector issues",
+    "challengesTitle": "The challenges we help address",
+    "accompagnement": "Our support",
+    "clienteleEyebrow": "Clients",
+    "nosClients": "Our clients",
+    "weAccompanyNotably": "We support in particular:",
+    "normesEyebrow": "Standards",
+    "referentiels": "Frameworks we master",
+    "refDesc": "Our teams operate in compliance with the main applicable frameworks:"
   },
   "talents": {
     "eyebrow": "Join the team",
