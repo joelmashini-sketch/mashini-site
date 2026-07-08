@@ -39,7 +39,7 @@ export default async function ArticlePage({
   const categoryLabel =
     articleCategories.find((c) => c.slug === article.category)?.label ?? article.category;
   const related = articles.filter((a) => a.slug !== article.slug && a.category === article.category).slice(0, 3);
-  const shareUrl = `https://www.mashini-associes.com/economic-intelligence/${article.slug}`;
+  const shareUrl = `https://www.mashiniassocies.com/economic-intelligence/${article.slug}`;
   const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
 
   return (

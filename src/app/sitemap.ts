@@ -3,7 +3,7 @@ import { articles, services, sectors } from "@/lib/data";
 
 export const dynamic = "force-static";
 
-const siteUrl = "https://www.mashini-associes.com";
+const siteUrl = "https://www.mashiniassocies.com";
 const locales = ["fr", "en", "zh"] as const;
 
 function forAllLocales(

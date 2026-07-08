@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { getLocale } from "next-intl/server";
 import Container from "./Container";
 
-const siteUrl = "https://www.mashini-associes.com";
+const siteUrl = "https://www.mashiniassocies.com";
 
 type Crumb = { label: string; href?: string };
 

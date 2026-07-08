@@ -17,7 +17,7 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-const siteUrl = "https://www.mashini-associes.com";
+const siteUrl = "https://www.mashiniassocies.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
