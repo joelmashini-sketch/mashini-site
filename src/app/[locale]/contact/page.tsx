@@ -35,7 +35,7 @@ export default async function ContactPage({
         photo="/H Contact.png"
         objectPosition="50% center"
         overlayClass="from-brand-ink/93 via-[#0d1730]/72 to-[#0d1730]/28"
-        cta={{ label: t("ctaLabel"), href: "#formulaire" }}
+        cta={{ label: t("ctaLabel"), href: "https://bookings.cloud.microsoft/book/EntretiensCommercial@mashiniassocies.com/?ismsaljsauthenabled", external: true }}
       />
 
       <section className="bg-white py-16 sm:py-20">

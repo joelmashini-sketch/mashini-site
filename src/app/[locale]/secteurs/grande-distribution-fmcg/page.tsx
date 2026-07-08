@@ -58,6 +58,7 @@ const defis = [
 type SectorI18n = {
   heroTitle: string;
   heroDesc: string;
+  eyebrow?: string;
   introBreadcrumb: string;
   introP1: string;
   introP2: string;
@@ -82,6 +83,7 @@ function getSectorData(locale: string): SectorI18n | null {
       "Supporting your growth in a market where speed of execution and margin control make all the difference.",
     heroDesc:
       "We support manufacturers, importers, distributors and wholesalers in strengthening their financial performance, governance and regulatory compliance.",
+    eyebrow: "Grande Distribution & FMCG",
     introBreadcrumb: "Grande Distribution & FMCG",
     introP1:
       "Companies operating in the fast-moving consumer goods sector face an environment characterised by high transaction volumes, rapid stock turnover, constant margin pressure and complex distribution networks.",
@@ -268,6 +270,7 @@ function getSectorData(locale: string): SectorI18n | null {
     heroTitle: "助力您在执行速度和利润管控至关重要的市场中实现增长。",
     heroDesc:
       "我们为制造商、进口商、分销商和批发商提供支持，帮助其提升财务绩效、完善公司治理并满足监管合规要求。",
+    eyebrow: "大型零售与快消品",
     introBreadcrumb: "大型分销与快消品",
     introP1:
       "快速消费品行业的企业面临交易量大、库存周转快、利润压力持续以及分销网络复杂等特殊环境。",
@@ -467,7 +470,7 @@ export default async function GrandeDistributionFmcgPage({
   return (
     <>
       <PageHero
-        eyebrow="Grande Distribution & FMCG"
+        eyebrow={d?.eyebrow ?? "Grande Distribution & FMCG"}
         title={d?.heroTitle ?? "Accompagner votre croissance dans un marché où la rapidité d'exécution et la maîtrise des marges font la différence."}
         description={d?.heroDesc ?? "Nous accompagnons les fabricants, importateurs, distributeurs et grossistes dans le renforcement de leur performance financière, de leur gouvernance et de leur conformité réglementaire."}
         breadcrumbs={[

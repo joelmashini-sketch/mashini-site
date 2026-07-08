@@ -23,7 +23,7 @@ export default function PageHero({
   photo?: string | null;
   overlayClass?: string;
   objectPosition?: string;
-  cta?: { label: string; href: string };
+  cta?: { label: string; href: string; external?: boolean };
 }) {
   return (
     <section className="relative overflow-hidden bg-brand-ink text-white">
@@ -81,13 +81,25 @@ export default function PageHero({
 
         {cta && (
           <div className="mt-8">
-            <Link
-              href={cta.href}
-              className="inline-flex items-center justify-center gap-2 rounded-sm bg-brand-orange px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-brand-orange-dark"
-            >
-              {cta.label}
-              <ArrowRight size={15} />
-            </Link>
+            {cta.external ? (
+              <a
+                href={cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-brand-orange px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-brand-orange-dark"
+              >
+                {cta.label}
+                <ArrowRight size={15} />
+              </a>
+            ) : (
+              <Link
+                href={cta.href}
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-brand-orange px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-brand-orange-dark"
+              >
+                {cta.label}
+                <ArrowRight size={15} />
+              </Link>
+            )}
           </div>
         )}
       </Container>

@@ -5,7 +5,7 @@ import type { LucideIcon } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
-import { sectors } from "@/lib/data";
+import { sectors, getSectorName, getSectorTagline } from "@/lib/data";
 
 const iconMap: Record<string, LucideIcon> = {
   Gem, Wrench, Flame, Factory, Truck, ShoppingBag, Package2, Heart, Landmark,
@@ -85,10 +85,10 @@ export default async function SecteursPage({
                   </span>
                   <div className="flex-1">
                     <h2 className="font-serif-display text-[17px] font-semibold text-brand-ink">
-                      {sector.name}
+                      {getSectorName(sector, locale)}
                     </h2>
                     <p className="mt-2 text-[13px] leading-relaxed text-brand-ink-light">
-                      {sector.tagline}
+                      {getSectorTagline(sector, locale)}
                     </p>
                   </div>
                   <span className="inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-wide text-brand-orange transition-all group-hover:gap-3">

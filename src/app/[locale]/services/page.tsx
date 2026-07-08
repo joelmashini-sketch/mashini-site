@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import Icon from "@/components/Icon";
-import { services } from "@/lib/data";
+import { services, getServiceContent } from "@/lib/data";
 
 export async function generateMetadata({
   params,
@@ -49,9 +49,12 @@ export default async function ServicesPage({
             {t("corporateTitle")}
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {corporate.map((service) => (
-              <ServiceCard key={service.slug} service={service} learnMore={t("learnMore")} comingSoon={t("comingSoon")} />
-            ))}
+            {corporate.map((service) => {
+              const sc = getServiceContent(service, locale);
+              return (
+                <ServiceCard key={service.slug} service={service} name={sc.name} shortDescription={sc.shortDescription} learnMore={t("learnMore")} comingSoon={t("comingSoon")} />
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -61,10 +64,14 @@ export default async function ServicesPage({
 
 function ServiceCard({
   service,
+  name,
+  shortDescription,
   learnMore,
   comingSoon,
 }: {
   service: (typeof services)[number];
+  name: string;
+  shortDescription: string;
   learnMore: string;
   comingSoon: string;
 }) {
@@ -84,10 +91,10 @@ function ServiceCard({
         )}
       </div>
       <h3 className="mt-5 font-serif-display text-lg font-semibold text-brand-ink">
-        {service.name}
+        {name}
       </h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-brand-ink-light">
-        {service.shortDescription}
+        {shortDescription}
       </p>
       <span className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-brand-orange">
         {learnMore}

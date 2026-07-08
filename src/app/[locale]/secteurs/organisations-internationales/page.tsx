@@ -67,6 +67,7 @@ const referentiels = [
 type SectorI18n = {
   heroTitle: string;
   heroDesc: string;
+  eyebrow?: string;
   introH2: string;
   introP1: string;
   introP2: string;
@@ -97,6 +98,7 @@ function getSectorData(locale: string): SectorI18n | null {
     heroTitle: "Strengthening financial transparency, compliance and the impact of your programmes.",
     heroDesc:
       "We support NGOs, United Nations agencies, foundations and associations in structuring their finance function and producing financial information that meets donor requirements.",
+    eyebrow: "International Organisations & NGOs",
     introH2: "International Organisations, NGOs & Non-Profit Entities",
     introP1:
       "Non-governmental organisations, United Nations agencies, foundations, associations and donor-funded projects operate in an environment where transparency, accountability and good governance are essential.",
@@ -281,6 +283,7 @@ function getSectorData(locale: string): SectorI18n | null {
     heroTitle: "增强财务透明度、合规性并提升项目影响力。",
     heroDesc:
       "我们为非政府组织、联合国机构、基金会和协会提供支持，协助其构建财务职能并产出符合捐助方要求的财务信息。",
+    eyebrow: "国际组织与非政府组织",
     introH2: "国际组织、非政府组织及非营利实体",
     introP1:
       "非政府组织、联合国机构、基金会、协会及捐助方资助项目在一个透明度、问责制和良好治理至关重要的环境中运营。",
@@ -477,7 +480,7 @@ export default async function OrganisationsInternationalesPage({
   return (
     <>
       <PageHero
-        eyebrow="Organisations internationales & ONG"
+        eyebrow={d?.eyebrow ?? "Organisations internationales & ONG"}
         title={d?.heroTitle ?? "Renforcer la transparence financière, la conformité et l'impact de vos programmes."}
         description={d?.heroDesc ?? "Nous accompagnons les ONG, agences des Nations Unies, fondations et associations dans la structuration de leur fonction finance et la production d'une information financière répondant aux exigences des bailleurs."}
         breadcrumbs={[

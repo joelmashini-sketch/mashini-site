@@ -560,6 +560,8 @@ export type Sector = {
   nameEn?: string;
   nameZh?: string;
   tagline: string;
+  taglineEn?: string;
+  taglineZh?: string;
   intro: string[];
   icon: string;
   items: string[];
@@ -572,6 +574,8 @@ export const sectors: Sector[] = [
     nameEn: "Mining sector",
     nameZh: "矿业",
     tagline: "Accompagner les acteurs de l'industrie minière vers l'excellence financière",
+    taglineEn: "Guiding mining industry players towards financial excellence",
+    taglineZh: "引领矿业参与者走向财务卓越",
     intro: [
       "Le secteur minier constitue l'un des principaux moteurs de l'économie congolaise. Son environnement est caractérisé par des exigences élevées en matière de gouvernance, de conformité, de fiscalité, de contrôle interne et de reporting financier.",
       "Nous accompagnons les sociétés minières tout au long de leur développement.",
@@ -600,6 +604,8 @@ export const sectors: Sector[] = [
     nameEn: "Mining subcontractors",
     nameZh: "矿业分包商",
     tagline: "Aider les entreprises locales à répondre aux exigences des grandes sociétés minières",
+    taglineEn: "Helping local companies meet the standards of major mining groups",
+    taglineZh: "助力本地企业达到大型矿业集团的要求",
     intro: [
       "Les entreprises de sous-traitance doivent démontrer une organisation solide, une gestion transparente et une information financière fiable afin de répondre aux standards imposés par les grandes sociétés minières.",
     ],
@@ -627,6 +633,8 @@ export const sectors: Sector[] = [
     nameEn: "Hydrocarbons",
     nameZh: "石油与天然气",
     tagline: "Accompagner un secteur stratégique fortement réglementé",
+    taglineEn: "Supporting a strategic, highly regulated sector",
+    taglineZh: "支持高度监管的战略性行业",
     intro: [
       "Le secteur des hydrocarbures nécessite des investissements importants et évolue dans un environnement réglementaire particulièrement exigeant.",
     ],
@@ -653,6 +661,8 @@ export const sectors: Sector[] = [
     nameEn: "Manufacturing industry",
     nameZh: "制造业",
     tagline: "Renforcer la compétitivité par une meilleure maîtrise des coûts",
+    taglineEn: "Strengthening competitiveness through better cost management",
+    taglineZh: "通过强化成本管控提升竞争力",
     intro: [
       "Dans l'industrie, la rentabilité repose sur une parfaite maîtrise des coûts de production et une gestion efficace des investissements.",
     ],
@@ -679,6 +689,8 @@ export const sectors: Sector[] = [
     nameEn: "Transport & Logistics",
     nameZh: "运输与物流",
     tagline: "Sécuriser les opérations dans un environnement à forte intensité de transactions",
+    taglineEn: "Securing operations in a high-volume transaction environment",
+    taglineZh: "保障高交易量环境下的运营安全",
     intro: [
       "Les entreprises de transport réalisent quotidiennement un grand nombre d'opérations financières et commerciales nécessitant un contrôle rigoureux.",
     ],
@@ -705,6 +717,8 @@ export const sectors: Sector[] = [
     nameEn: "Distribution & FMCG",
     nameZh: "大型零售与快消品",
     tagline: "Optimiser la performance dans un secteur à forts volumes",
+    taglineEn: "Optimising performance in a high-volume sector",
+    taglineZh: "优化高产量行业的绩效",
     intro: [
       "Le secteur des biens de consommation exige une gestion rigoureuse des marges, des stocks et des réseaux de distribution.",
     ],
@@ -728,6 +742,8 @@ export const sectors: Sector[] = [
     nameEn: "International organisations & NGOs",
     nameZh: "国际组织与非政府组织",
     tagline: "Garantir la transparence et la bonne gouvernance",
+    taglineEn: "Ensuring transparency and good governance",
+    taglineZh: "保障透明度与良好治理",
     intro: [
       "Nous accompagnons les organisations dans la gestion rigoureuse des ressources mises à leur disposition.",
     ],
@@ -811,6 +827,12 @@ export function getSectorName(sector: Sector, locale: string): string {
   if (locale === "en") return sector.nameEn ?? sector.name;
   if (locale === "zh") return sector.nameZh ?? sector.name;
   return sector.name;
+}
+
+export function getSectorTagline(sector: Sector, locale: string): string {
+  if (locale === "en") return sector.taglineEn ?? sector.tagline;
+  if (locale === "zh") return sector.taglineZh ?? sector.tagline;
+  return sector.tagline;
 }
 
 export function getServiceName(service: Service, locale: string): string {
