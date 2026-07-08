@@ -6,11 +6,32 @@ import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import { getSortedPosts, getCategoryBySlug } from "@/lib/blog-data";
 
-export const metadata: Metadata = {
-  title: "Secteur minier — Financial Intelligence for Mining Excellence",
-  description:
-    "Mashini & Associés accompagne les sociétés minières et les investisseurs dans la maîtrise de leurs enjeux financiers, fiscaux, réglementaires et stratégiques tout au long du cycle minier.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const d = getSectorData(locale);
+  const title =
+    locale === "en" ? "Mining sector" :
+    locale === "zh" ? "矿业" :
+    "Secteur minier";
+  return {
+    title,
+    description:
+      d?.heroDesc ??
+      "Mashini & Associés accompagne les sociétés minières et les investisseurs dans la maîtrise de leurs enjeux financiers, fiscaux, réglementaires et stratégiques tout au long du cycle minier.",
+    alternates: {
+      canonical: `/${locale}/secteurs/secteur-minier`,
+      languages: {
+        fr: "/fr/secteurs/secteur-minier",
+        en: "/en/secteurs/secteur-minier",
+        zh: "/zh/secteurs/secteur-minier",
+      },
+    },
+  };
+}
 
 const pillars = [
   "Gouvernance financière",

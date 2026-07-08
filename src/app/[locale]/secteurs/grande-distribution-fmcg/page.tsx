@@ -5,11 +5,32 @@ import { getTranslations } from "next-intl/server";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = {
-  title: "Grande Distribution & FMCG — Mashini & Associés",
-  description:
-    "Mashini & Associés accompagne les fabricants, importateurs, distributeurs et grossistes dans le renforcement de leur performance financière, de leur gouvernance et de leur conformité réglementaire.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const d = getSectorData(locale);
+  const title =
+    locale === "en" ? "Distribution & FMCG" :
+    locale === "zh" ? "大型零售与快消品" :
+    "Grande Distribution & FMCG";
+  return {
+    title,
+    description:
+      d?.heroDesc ??
+      "Mashini & Associés accompagne les fabricants, importateurs, distributeurs et grossistes dans le renforcement de leur performance financière, de leur gouvernance et de leur conformité réglementaire.",
+    alternates: {
+      canonical: `/${locale}/secteurs/grande-distribution-fmcg`,
+      languages: {
+        fr: "/fr/secteurs/grande-distribution-fmcg",
+        en: "/en/secteurs/grande-distribution-fmcg",
+        zh: "/zh/secteurs/grande-distribution-fmcg",
+      },
+    },
+  };
+}
 
 const navLinks = [
   { id: "marges", label: "Gestion des marges et rentabilité" },

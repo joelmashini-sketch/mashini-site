@@ -375,9 +375,19 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
+  const sc = getServiceContent(service, locale);
   return {
-    title: "Audit & Assurance — Nos Services",
-    description: service.shortDescription,
+    title: sc.name,
+    description: sc.shortDescription,
+    alternates: {
+      canonical: `/${locale}/services/audit-assurance`,
+      languages: {
+        fr: "/fr/services/audit-assurance",
+        en: "/en/services/audit-assurance",
+        zh: "/zh/services/audit-assurance",
+      },
+    },
   };
 }
 

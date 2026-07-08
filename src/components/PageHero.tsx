@@ -2,11 +2,14 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
+import { getLocale } from "next-intl/server";
 import Container from "./Container";
+
+const siteUrl = "https://www.mashini-associes.com";
 
 type Crumb = { label: string; href?: string };
 
-export default function PageHero({
+export default async function PageHero({
   eyebrow,
   title,
   description,
@@ -25,8 +28,25 @@ export default function PageHero({
   objectPosition?: string;
   cta?: { label: string; href: string; external?: boolean };
 }) {
+  const locale = await getLocale();
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: crumb.label,
+      ...(crumb.href
+        ? { item: `${siteUrl}/${locale}${crumb.href === "/" ? "" : crumb.href}` }
+        : {}),
+    })),
+  };
   return (
     <section className="relative overflow-hidden bg-brand-ink text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {photo && (
         <Image
           src={photo}

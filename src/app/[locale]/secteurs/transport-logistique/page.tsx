@@ -6,11 +6,32 @@ import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import { getSortedPosts, getCategoryBySlug } from "@/lib/blog-data";
 
-export const metadata: Metadata = {
-  title: "Transport & Logistique — Driving Financial Performance Across the Supply Chain",
-  description:
-    "Mashini & Associés accompagne les entreprises du transport, de la logistique, du transit et de la distribution dans le renforcement de leur performance financière et de leur conformité réglementaire.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const d = getSectorData(locale);
+  const title =
+    locale === "en" ? "Transport & Logistics" :
+    locale === "zh" ? "运输与物流" :
+    "Transport & Logistique";
+  return {
+    title,
+    description:
+      d?.heroDesc ??
+      "Mashini & Associés accompagne les entreprises du transport, de la logistique, du transit et de la distribution dans le renforcement de leur performance financière et de leur conformité réglementaire.",
+    alternates: {
+      canonical: `/${locale}/secteurs/transport-logistique`,
+      languages: {
+        fr: "/fr/secteurs/transport-logistique",
+        en: "/en/secteurs/transport-logistique",
+        zh: "/zh/secteurs/transport-logistique",
+      },
+    },
+  };
+}
 
 const navLinks = [
   { id: "tresorerie", label: "Gestion de la trésorerie" },

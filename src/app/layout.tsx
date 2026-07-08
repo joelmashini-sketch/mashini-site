@@ -26,30 +26,82 @@ export const metadata: Metadata = {
     template: "%s | Mashini & Associés",
   },
   description:
-    "Cabinet premium d'audit, d'expertise comptable et de conseil financier spécialisé dans l'accompagnement des filiales internationales en Afrique centrale.",
+    "Cabinet d'audit, d'expertise comptable et de conseil financier, spécialisé dans l'accompagnement des filiales internationales et des entreprises leaders en Afrique centrale.",
   keywords: [
     "audit Afrique centrale",
     "expertise comptable RDC",
-    "cabinet conseil financier",
+    "cabinet conseil financier Kinshasa",
     "SYSCOHADA",
-    "due diligence Afrique",
-    "investment advisory",
+    "IFRS Afrique",
+    "due diligence Afrique centrale",
+    "contrôle interne",
+    "corporate finance Congo",
+    "Mashini Associés",
   ],
+  authors: [{ name: "Mashini & Associés" }],
   openGraph: {
     type: "website",
     siteName: "Mashini & Associés",
     title: "Mashini & Associés — Intelligence financière. Confiance. Croissance.",
     description:
-      "Cabinet premium d'audit, d'expertise comptable et de conseil financier accompagnant les filiales internationales en Afrique centrale.",
+      "Cabinet d'audit, d'expertise comptable et de conseil financier accompagnant les filiales internationales et les entreprises leaders en Afrique centrale.",
+    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Mashini & Associés" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mashini & Associés — Intelligence financière. Confiance. Croissance.",
+    description:
+      "Cabinet d'audit, d'expertise comptable et de conseil financier en Afrique centrale.",
+    images: ["/og-default.png"],
+  },
+  icons: {
+    icon: "/logo-icon.png",
+    shortcut: "/logo-icon.png",
+    apple: "/logo-icon.png",
   },
   alternates: {
-    canonical: "/",
+    canonical: "/fr",
     languages: {
-      fr: "/",
+      fr: "/fr",
       en: "/en",
       zh: "/zh",
     },
   },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Mashini & Associés",
+  url: siteUrl,
+  logo: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/logo.png`,
+  },
+  description:
+    "Cabinet d'audit, d'expertise comptable et de conseil financier spécialisé dans l'accompagnement des filiales internationales en Afrique centrale.",
+  email: "joel.mashini@mashiniassocies.com",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "CD",
+    addressLocality: "Kinshasa",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: "joel.mashini@mashiniassocies.com",
+    availableLanguage: ["French", "English", "Chinese"],
+  },
+  knowsAbout: [
+    "Audit légal",
+    "Expertise comptable",
+    "SYSCOHADA",
+    "IFRS",
+    "Contrôle interne",
+    "Corporate finance",
+    "Due diligence",
+    "Conseil financier",
+  ],
 };
 
 export default async function RootLayout({
@@ -63,7 +115,13 @@ export default async function RootLayout({
       lang={locale}
       className={`${inter.variable} ${fraunces.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </body>
     </html>
   );
 }

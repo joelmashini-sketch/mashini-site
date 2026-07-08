@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
@@ -20,6 +21,23 @@ import Container from "@/components/Container";
 import Icon from "@/components/Icon";
 import { services, values, getServiceContent } from "@/lib/data";
 import { getSortedPosts, getCategoryBySlug } from "@/lib/blog-data";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
+  return {
+    description: t("hero.description"),
+    alternates: {
+      canonical: `/${locale}`,
+      languages: { fr: "/fr", en: "/en", zh: "/zh" },
+    },
+    openGraph: { url: `/${locale}` },
+  };
+}
 
 export default async function Home({
   params,

@@ -17,12 +17,21 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
+  const sc = getServiceContent(service, locale);
   return {
-    title: service.name,
-    description: service.shortDescription,
+    title: sc.name,
+    description: sc.shortDescription,
+    alternates: {
+      canonical: `/${locale}/services/${slug}`,
+      languages: {
+        fr: `/fr/services/${slug}`,
+        en: `/en/services/${slug}`,
+        zh: `/zh/services/${slug}`,
+      },
+    },
   };
 }
 

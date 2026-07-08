@@ -5,11 +5,32 @@ import { getTranslations } from "next-intl/server";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = {
-  title: "Hydrocarbures — Financial Intelligence for the Energy Sector",
-  description:
-    "Mashini & Associés accompagne les entreprises opérant dans le secteur des hydrocarbures dans la maîtrise de leurs enjeux financiers, réglementaires, fiscaux et de gouvernance.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const d = getSectorData(locale);
+  const title =
+    locale === "en" ? "Hydrocarbons" :
+    locale === "zh" ? "石油与天然气" :
+    "Hydrocarbures";
+  return {
+    title,
+    description:
+      d?.heroDesc ??
+      "Mashini & Associés accompagne les entreprises du secteur des hydrocarbures dans la maîtrise de leurs enjeux financiers, réglementaires, fiscaux et de gouvernance.",
+    alternates: {
+      canonical: `/${locale}/secteurs/hydrocarbures`,
+      languages: {
+        fr: "/fr/secteurs/hydrocarbures",
+        en: "/en/secteurs/hydrocarbures",
+        zh: "/zh/secteurs/hydrocarbures",
+      },
+    },
+  };
+}
 
 const navLinks = [
   { id: "investissements", label: "Investissements & infrastructures" },

@@ -18,7 +18,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "talents" });
-  return { title: t("eyebrow") };
+  return {
+    title: t("eyebrow"),
+    description: t("description"),
+    alternates: {
+      canonical: `/${locale}/talents`,
+      languages: { fr: "/fr/talents", en: "/en/talents", zh: "/zh/talents" },
+    },
+  };
 }
 
 export default async function TalentsPage({

@@ -5,11 +5,32 @@ import { getTranslations } from "next-intl/server";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = {
-  title: "Organisations internationales & ONG — Mashini & Associés",
-  description:
-    "Mashini & Associés accompagne les ONG, agences des Nations Unies et entités à but non lucratif dans la structuration de leur fonction finance, la conformité SYSBNL et la maîtrise des exigences des bailleurs.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const d = getSectorData(locale);
+  const title =
+    locale === "en" ? "International Organisations & NGOs" :
+    locale === "zh" ? "国际组织与非政府组织" :
+    "Organisations internationales & ONG";
+  return {
+    title,
+    description:
+      d?.heroDesc ??
+      "Mashini & Associés accompagne les ONG, agences des Nations Unies et entités à but non lucratif dans la structuration de leur fonction finance, la conformité SYSBNL et la maîtrise des exigences des bailleurs.",
+    alternates: {
+      canonical: `/${locale}/secteurs/organisations-internationales`,
+      languages: {
+        fr: "/fr/secteurs/organisations-internationales",
+        en: "/en/secteurs/organisations-internationales",
+        zh: "/zh/secteurs/organisations-internationales",
+      },
+    },
+  };
+}
 
 const navLinks = [
   { id: "sysbnl", label: "Mise en œuvre du SYSBNL" },

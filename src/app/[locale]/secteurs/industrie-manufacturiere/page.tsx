@@ -5,11 +5,32 @@ import { getTranslations } from "next-intl/server";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = {
-  title: "Industrie manufacturière — Driving Industrial Performance Through Financial Excellence",
-  description:
-    "Mashini & Associés accompagne les entreprises industrielles dans l'optimisation de leur performance financière, leur conformité réglementaire, leur développement et leurs projets d'investissement.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const d = getSectorData(locale);
+  const title =
+    locale === "en" ? "Manufacturing industry" :
+    locale === "zh" ? "制造业" :
+    "Industrie manufacturière";
+  return {
+    title,
+    description:
+      d?.heroDesc ??
+      "Mashini & Associés accompagne les entreprises industrielles dans l'optimisation de leur performance financière, leur conformité réglementaire, leur développement et leurs projets d'investissement.",
+    alternates: {
+      canonical: `/${locale}/secteurs/industrie-manufacturiere`,
+      languages: {
+        fr: "/fr/secteurs/industrie-manufacturiere",
+        en: "/en/secteurs/industrie-manufacturiere",
+        zh: "/zh/secteurs/industrie-manufacturiere",
+      },
+    },
+  };
+}
 
 const navLinks = [
   { id: "cost-accounting", label: "Cost Accounting & Contrôle de gestion" },

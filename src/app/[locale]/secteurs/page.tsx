@@ -18,7 +18,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "secteurs" });
-  return { title: t("title").replace("\n", " ") };
+  return {
+    title: t("title").replace("\n", " "),
+    description: t("description"),
+    alternates: {
+      canonical: `/${locale}/secteurs`,
+      languages: { fr: "/fr/secteurs", en: "/en/secteurs", zh: "/zh/secteurs" },
+    },
+  };
 }
 
 export default async function SecteursPage({

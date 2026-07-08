@@ -13,7 +13,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blog" });
-  return { title: t("eyebrow") };
+  return {
+    title: t("eyebrow"),
+    description: t("description"),
+    alternates: {
+      canonical: `/${locale}/blog`,
+      languages: { fr: "/fr/blog", en: "/en/blog", zh: "/zh/blog" },
+    },
+  };
 }
 
 export default async function BlogPage({

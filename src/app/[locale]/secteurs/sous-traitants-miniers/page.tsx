@@ -5,11 +5,32 @@ import { getTranslations } from "next-intl/server";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = {
-  title: "Sous-traitants miniers — Empowering Mining Contractors to Meet International Standards",
-  description:
-    "Mashini & Associés accompagne les entreprises de sous-traitance minière dans le renforcement de leur gouvernance, de leur performance financière et de leur conformité.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const d = getSectorData(locale);
+  const title =
+    locale === "en" ? "Mining subcontractors" :
+    locale === "zh" ? "矿业分包商" :
+    "Sous-traitants miniers";
+  return {
+    title,
+    description:
+      d?.heroDesc ??
+      "Mashini & Associés accompagne les entreprises de sous-traitance minière dans le renforcement de leur gouvernance, de leur performance financière et de leur conformité.",
+    alternates: {
+      canonical: `/${locale}/secteurs/sous-traitants-miniers`,
+      languages: {
+        fr: "/fr/secteurs/sous-traitants-miniers",
+        en: "/en/secteurs/sous-traitants-miniers",
+        zh: "/zh/secteurs/sous-traitants-miniers",
+      },
+    },
+  };
+}
 
 const navLinks = [
   { id: "gouvernance", label: "Renforcer votre gouvernance" },
