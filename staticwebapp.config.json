@@ -1,9 +1,4 @@
 {
-  "trailingSlash": "always",
-  "navigationFallback": {
-    "rewrite": "/404.html",
-    "exclude": ["/images/*.{png,jpg,jpeg,svg,webp,ico}", "/*.{css,js,json,txt,xml}"]
-  },
   "routes": [
     {
       "route": "/*.{png,jpg,jpeg,svg,webp,ico,css,js}",
@@ -12,12 +7,6 @@
       }
     }
   ],
-  "responseOverrides": {
-    "404": {
-      "rewrite": "/404.html",
-      "statusCode": 404
-    }
-  },
   "globalHeaders": {
     "X-Frame-Options": "SAMEORIGIN",
     "X-Content-Type-Options": "nosniff",
