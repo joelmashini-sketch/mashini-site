@@ -42,6 +42,9 @@ const defis = [
 ];
 
 type SectorI18n = {
+  eyebrow: string;
+  heroTitle: string;
+  heroDesc: string;
   introH2: string;
   introP1: string;
   introP2: string;
@@ -64,6 +67,9 @@ type SectorI18n = {
 
 function getSectorData(locale: string): SectorI18n | null {
   const en: SectorI18n = {
+    eyebrow: "Mining Subcontractors",
+    heroTitle: "Empowering Mining Contractors to Meet International Standards",
+    heroDesc: "We support mining subcontractors in strengthening their governance, financial performance and compliance to meet the requirements of major mining companies.",
     introH2: "A demanding environment",
     introP1:
       "Major mining companies apply high standards in governance, compliance, financial security and operational performance.",
@@ -206,6 +212,9 @@ function getSectorData(locale: string): SectorI18n | null {
   };
 
   const zh: SectorI18n = {
+    eyebrow: "矿业分包商",
+    heroTitle: "助力矿业承包商达到国际标准",
+    heroDesc: "我们协助矿业分包商加强治理、提升财务绩效并确保合规，以满足大型矿业公司的要求。",
     introH2: "要求严苛的环境",
     introP1:
       "大型采矿公司在治理、合规、财务安全和运营绩效方面执行高标准。",
@@ -364,9 +373,9 @@ export default async function SousTraitantsMinierPage({
   return (
     <>
       <PageHero
-        eyebrow="Sous-traitants miniers"
-        title="Empowering Mining Contractors to Meet International Standards"
-        description="Nous accompagnons les entreprises de sous-traitance minière dans le renforcement de leur gouvernance, de leur performance financière et de leur conformité afin de répondre aux exigences des grandes sociétés minières."
+        eyebrow={d?.eyebrow ?? "Sous-traitants miniers"}
+        title={d?.heroTitle ?? "Accompagner les entreprises locales à répondre aux exigences internationales"}
+        description={d?.heroDesc ?? "Nous accompagnons les entreprises de sous-traitance minière dans le renforcement de leur gouvernance, de leur performance financière et de leur conformité afin de répondre aux exigences des grandes sociétés minières."}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("title").replace("\n", " "), href: "/secteurs" },

@@ -43,6 +43,9 @@ const defis = [
 ];
 
 type SectorI18n = {
+  eyebrow: string;
+  heroTitle: string;
+  heroDesc: string;
   introH2: string;
   introP1: string;
   introP2: string;
@@ -60,6 +63,9 @@ type SectorI18n = {
 
 function getSectorData(locale: string): SectorI18n | null {
   const en: SectorI18n = {
+    eyebrow: "Financial Intelligence for the Energy Sector",
+    heroTitle: "Hydrocarbons",
+    heroDesc: "We support companies in the hydrocarbons sector in mastering their financial, regulatory, tax and governance challenges to secure their investments and sustain their growth.",
     introH2: "A strategic, heavily regulated sector",
     introP1:
       "The hydrocarbons sector demands perfect mastery of investments, regulatory requirements and financial risks.",
@@ -205,6 +211,9 @@ function getSectorData(locale: string): SectorI18n | null {
   };
 
   const zh: SectorI18n = {
+    eyebrow: "能源行业财务专家",
+    heroTitle: "石油与天然气",
+    heroDesc: "我们协助石油天然气行业企业掌握其财务、监管、税务和治理挑战，以确保投资安全并支持增长。",
     introH2: "战略性高度监管行业",
     introP1:
       "油气行业要求对投资、监管要求和财务风险实现精准掌控。",
@@ -366,9 +375,9 @@ export default async function HydrocarburesPage({
   return (
     <>
       <PageHero
-        eyebrow="Financial Intelligence for the Energy Sector"
-        title="Hydrocarbures"
-        description="Nous accompagnons les entreprises opérant dans le secteur des hydrocarbures dans la maîtrise de leurs enjeux financiers, réglementaires, fiscaux et de gouvernance afin de sécuriser leurs investissements et soutenir leur croissance."
+        eyebrow={d?.eyebrow ?? "Intelligence financière pour le secteur énergétique"}
+        title={d?.heroTitle ?? "Hydrocarbures"}
+        description={d?.heroDesc ?? "Nous accompagnons les entreprises opérant dans le secteur des hydrocarbures dans la maîtrise de leurs enjeux financiers, réglementaires, fiscaux et de gouvernance afin de sécuriser leurs investissements et soutenir leur croissance."}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("title").replace("\n", " "), href: "/secteurs" },

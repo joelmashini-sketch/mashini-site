@@ -43,6 +43,9 @@ const defis = [
 ];
 
 type SectorI18n = {
+  eyebrow: string;
+  heroTitle: string;
+  heroDesc: string;
   introH2: string;
   introP1: string;
   introP2: string;
@@ -61,6 +64,9 @@ type SectorI18n = {
 
 function getSectorData(locale: string): SectorI18n | null {
   const en: SectorI18n = {
+    eyebrow: "Manufacturing & Industrial",
+    heroTitle: "Driving Industrial Performance Through Financial Excellence",
+    heroDesc: "We support industrial companies in optimising their financial performance, regulatory compliance, development and investment projects.",
     introH2: "A strategic partner for industrial companies",
     introP1:
       "The industrial sector operates in an environment where cost control, productive investment, tax obligations and regulatory requirements directly determine competitiveness.",
@@ -204,6 +210,9 @@ function getSectorData(locale: string): SectorI18n | null {
   };
 
   const zh: SectorI18n = {
+    eyebrow: "制造业与工业",
+    heroTitle: "以财务卓越驱动工业绩效",
+    heroDesc: "我们协助工业企业优化其财务绩效、法规合规、发展和投资项目。",
     introH2: "工业企业的战略合作伙伴",
     introP1:
       "工业领域在成本控制、生产性投资、税务义务和监管要求直接决定竞争力的环境中运营。",
@@ -363,9 +372,9 @@ export default async function IndustrieManufacturierePage({
   return (
     <>
       <PageHero
-        eyebrow="Manufacturing & Industrial"
-        title="Driving Industrial Performance Through Financial Excellence"
-        description="Nous accompagnons les entreprises industrielles dans l'optimisation de leur performance financière, leur conformité réglementaire, leur développement et leurs projets d'investissement."
+        eyebrow={d?.eyebrow ?? "Industrie manufacturière"}
+        title={d?.heroTitle ?? "Améliorer la performance industrielle par l'excellence financière"}
+        description={d?.heroDesc ?? "Nous accompagnons les entreprises industrielles dans l'optimisation de leur performance financière, leur conformité réglementaire, leur développement et leurs projets d'investissement."}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("title").replace("\n", " "), href: "/secteurs" },

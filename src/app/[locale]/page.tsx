@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import Container from "@/components/Container";
 import Icon from "@/components/Icon";
-import { services, values } from "@/lib/data";
+import { services, values, getServiceContent } from "@/lib/data";
 import { getSortedPosts, getCategoryBySlug } from "@/lib/blog-data";
 
 export default async function Home({
@@ -283,19 +283,23 @@ export default async function Home({
               { value: values[1], icon: ShieldCheck },
               { value: values[2], icon: TrendingUp },
               { value: values[3], icon: Globe2 },
-            ].map(({ value: v, icon: IconComp }) => (
-              <div key={v.title} className="text-center">
-                <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white text-brand-orange shadow-sm">
-                  <IconComp size={26} />
-                </span>
-                <h3 className="mt-5 text-base font-semibold uppercase tracking-wide text-brand-ink">
-                  {v.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-brand-ink-light">
-                  {v.description}
-                </p>
-              </div>
-            ))}
+            ].map(({ value: v, icon: IconComp }) => {
+              const vTitle = locale === "en" ? (v.titleEn ?? v.title) : locale === "zh" ? (v.titleZh ?? v.title) : v.title;
+              const vDesc = locale === "en" ? (v.descriptionEn ?? v.description) : locale === "zh" ? (v.descriptionZh ?? v.description) : v.description;
+              return (
+                <div key={v.title} className="text-center">
+                  <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white text-brand-orange shadow-sm">
+                    <IconComp size={26} />
+                  </span>
+                  <h3 className="mt-5 text-base font-semibold uppercase tracking-wide text-brand-ink">
+                    {vTitle}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-brand-ink-light">
+                    {vDesc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -322,23 +326,26 @@ export default async function Home({
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {corporateServices.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="group rounded-sm border border-black/10 p-7 transition-colors hover:border-brand-orange/40 hover:bg-[#fbf7f5]"
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-ink/5 text-brand-ink transition-colors group-hover:bg-brand-orange group-hover:text-white">
-                  <Icon name={service.icon} size={22} />
-                </span>
-                <h3 className="mt-5 font-serif-display text-lg font-semibold text-brand-ink">
-                  {service.name}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-brand-ink-light">
-                  {service.shortDescription}
-                </p>
-              </Link>
-            ))}
+            {corporateServices.map((service) => {
+              const sc = getServiceContent(service, locale);
+              return (
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
+                  className="group rounded-sm border border-black/10 p-7 transition-colors hover:border-brand-orange/40 hover:bg-[#fbf7f5]"
+                >
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-ink/5 text-brand-ink transition-colors group-hover:bg-brand-orange group-hover:text-white">
+                    <Icon name={service.icon} size={22} />
+                  </span>
+                  <h3 className="mt-5 font-serif-display text-lg font-semibold text-brand-ink">
+                    {sc.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-brand-ink-light">
+                    {sc.shortDescription}
+                  </p>
+                </Link>
+              );
+            })}
           </div>
         </Container>
       </section>

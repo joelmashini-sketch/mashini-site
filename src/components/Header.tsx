@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import Container from "./Container";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
-import { services, sectors } from "@/lib/data";
+import { services, sectors, getSectorName, getServiceName } from "@/lib/data";
 
 const corporateServices = services.filter((s) => s.category === "corporate");
 
@@ -296,7 +296,7 @@ export default function Header() {
                       className="group flex items-center gap-2.5 rounded-sm px-3 py-2 text-[13px] text-brand-ink-light transition-colors hover:bg-black/[0.03] hover:text-brand-ink"
                     >
                       <span className="h-1 w-1 shrink-0 rounded-full bg-brand-ink/20 transition-colors group-hover:bg-brand-orange" />
-                      {s.name}
+                      {getSectorName(s, locale)}
                     </Link>
                   </li>
                 ))}
@@ -316,7 +316,7 @@ export default function Header() {
                       className="group flex items-center gap-2.5 rounded-sm px-3 py-2 text-[13px] text-brand-ink-light transition-colors hover:bg-black/[0.03] hover:text-brand-ink"
                     >
                       <span className="h-1 w-1 shrink-0 rounded-full bg-brand-ink/20 transition-colors group-hover:bg-brand-orange" />
-                      {s.name}
+                      {getSectorName(s, locale)}
                     </Link>
                   </li>
                 ))}
@@ -359,7 +359,7 @@ export default function Header() {
                 className="group flex items-center gap-2.5 rounded-sm px-3 py-2 text-[13px] text-brand-ink-light transition-colors hover:bg-black/[0.03] hover:text-brand-ink"
               >
                 <span className="h-1 w-1 shrink-0 rounded-full bg-brand-ink/20 transition-colors group-hover:bg-brand-orange" />
-                {s.name}
+                {getServiceName(s, locale)}
               </Link>
             ))}
           </div>
@@ -406,7 +406,7 @@ export default function Header() {
                     onClick={() => setMobileOpen(false)}
                     className="block py-2 text-[13px] text-brand-ink-light hover:text-brand-ink"
                   >
-                    {s.name}
+                    {getSectorName(s, locale)}
                   </Link>
                 ))}
                 <p className="pb-1 pt-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-brand-orange">
@@ -419,7 +419,7 @@ export default function Header() {
                     onClick={() => setMobileOpen(false)}
                     className="block py-2 text-[13px] text-brand-ink-light hover:text-brand-ink"
                   >
-                    {s.name}
+                    {getSectorName(s, locale)}
                   </Link>
                 ))}
                 <Link
@@ -454,7 +454,7 @@ export default function Header() {
                     onClick={() => setMobileOpen(false)}
                     className="block py-2 text-[13px] text-brand-ink-light hover:text-brand-ink"
                   >
-                    {s.name}
+                    {getServiceName(s, locale)}
                   </Link>
                 ))}
                 <Link

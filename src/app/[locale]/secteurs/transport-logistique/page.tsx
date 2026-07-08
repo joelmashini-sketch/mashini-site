@@ -43,6 +43,9 @@ const defis = [
 ];
 
 type SectorI18n = {
+  eyebrow: string;
+  heroTitle: string;
+  heroDesc: string;
   introH2: string;
   introP1: string;
   introP2: string;
@@ -61,6 +64,9 @@ type SectorI18n = {
 
 function getSectorData(locale: string): SectorI18n | null {
   const en: SectorI18n = {
+    eyebrow: "Driving Financial Performance Across the Supply Chain",
+    heroTitle: "Transport & Logistics",
+    heroDesc: "We support companies in transport, logistics, transit and distribution in strengthening their financial performance, internal controls and regulatory compliance.",
     introH2: "A sector where financial control is essential",
     introP1:
       "Transport and logistics operate in an environment characterised by high transaction volumes, often limited margins and significant regulatory requirements.",
@@ -204,6 +210,9 @@ function getSectorData(locale: string): SectorI18n | null {
   };
 
   const zh: SectorI18n = {
+    eyebrow: "推动供应链整体财务绩效",
+    heroTitle: "运输与物流",
+    heroDesc: "我们协助运输、物流、中转及分销企业加强其财务绩效、内部控制和法规合规。",
     introH2: "财务管控至关重要的行业",
     introP1:
       "运输与物流业在交易量大、利润往往有限、监管要求繁重的环境中运营。",
@@ -363,9 +372,9 @@ export default async function TransportLogistiquePage({
   return (
     <>
       <PageHero
-        eyebrow="Driving Financial Performance Across the Supply Chain"
-        title={<>Transport &amp;<br />Logistique</>}
-        description="Nous accompagnons les entreprises du transport, de la logistique, du transit et de la distribution dans le renforcement de leur performance financière, de leur contrôle interne et de leur conformité réglementaire."
+        eyebrow={d?.eyebrow ?? "Transport & Logistique"}
+        title={d?.heroTitle ?? <>Transport &amp;<br />Logistique</>}
+        description={d?.heroDesc ?? "Nous accompagnons les entreprises du transport, de la logistique, du transit et de la distribution dans le renforcement de leur performance financière, de leur contrôle interne et de leur conformité réglementaire."}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("title").replace("\n", " "), href: "/secteurs" },

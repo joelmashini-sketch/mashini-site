@@ -6,7 +6,7 @@ import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import Icon from "@/components/Icon";
 import { Link } from "@/i18n/navigation";
-import { services } from "@/lib/data";
+import { services, getServiceContent } from "@/lib/data";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -48,6 +48,7 @@ export default async function ServiceDetailPage({
   const service = services.find((s) => s.slug === slug);
   if (!service) notFound();
 
+  const sc = getServiceContent(service, locale);
   const related = services.filter((s) => s.slug !== service.slug).slice(0, 3);
   const hero = heroPhotos[slug];
 
@@ -55,12 +56,12 @@ export default async function ServiceDetailPage({
     <>
       <PageHero
         eyebrow={service.available ? t("available") : t("comingSoonBadge")}
-        title={service.name}
-        description={service.shortDescription}
+        title={sc.name}
+        description={sc.shortDescription}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("title"), href: "/services" },
-          { label: service.name },
+          { label: sc.name },
         ]}
         photo={hero?.photo}
         objectPosition={hero?.objectPosition}
@@ -85,14 +86,14 @@ export default async function ServiceDetailPage({
               {t("presentation")}
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-brand-ink-light sm:text-base">
-              {service.presentation}
+              {sc.presentation}
             </p>
 
             <h2 className="mt-12 font-serif-display text-2xl font-semibold text-brand-ink">
               {t("benefits")}
             </h2>
             <ul className="mt-5 space-y-3">
-              {service.benefits.map((b) => (
+              {sc.benefits.map((b) => (
                 <li key={b} className="flex items-start gap-3 text-sm text-brand-ink-light sm:text-base">
                   <Check size={18} className="mt-0.5 shrink-0 text-brand-orange" />
                   {b}
@@ -104,7 +105,7 @@ export default async function ServiceDetailPage({
               {t("methodology")}
             </h2>
             <ol className="mt-5 space-y-6 border-l border-black/10 pl-6">
-              {service.methodology.map((step, i) => (
+              {sc.methodology.map((step, i) => (
                 <li key={step.title} className="relative">
                   <span className="absolute -left-[31px] flex h-6 w-6 items-center justify-center rounded-full bg-brand-orange text-[11px] font-semibold text-white">
                     {i + 1}
@@ -119,7 +120,7 @@ export default async function ServiceDetailPage({
           <aside className="space-y-6">
             <div className="rounded-sm border border-black/10 bg-[#f7f7f8] p-7">
               <h3 className="font-serif-display text-lg font-semibold text-brand-ink">
-                {t("sidebarCtaTitle", { name: service.name })}
+                {t("sidebarCtaTitle", { name: sc.name })}
               </h3>
               <p className="mt-2 text-sm text-brand-ink-light">
                 {t("sidebarCtaDesc")}
@@ -138,17 +139,20 @@ export default async function ServiceDetailPage({
                 {t("otherServices")}
               </h3>
               <ul className="mt-4 space-y-3">
-                {related.map((r) => (
-                  <li key={r.slug}>
-                    <Link
-                      href={`/services/${r.slug}`}
-                      className="flex items-center justify-between text-sm text-brand-ink-light hover:text-brand-orange"
-                    >
-                      {r.name}
-                      <ArrowRight size={14} />
-                    </Link>
-                  </li>
-                ))}
+                {related.map((r) => {
+                  const rsc = getServiceContent(r, locale);
+                  return (
+                    <li key={r.slug}>
+                      <Link
+                        href={`/services/${r.slug}`}
+                        className="flex items-center justify-between text-sm text-brand-ink-light hover:text-brand-orange"
+                      >
+                        {rsc.name}
+                        <ArrowRight size={14} />
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </aside>
