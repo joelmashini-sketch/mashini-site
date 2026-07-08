@@ -70,10 +70,9 @@ export default async function PolitiqueCookiesPage({
               {t("policy.manage.desc")}
             </p>
             <ul className="mt-4 space-y-1 text-sm text-gray-600 list-disc list-inside">
-              <li>Chrome : Paramètres → Confidentialité → Cookies</li>
-              <li>Firefox : Préférences → Vie privée → Cookies</li>
-              <li>Safari : Préférences → Confidentialité</li>
-              <li>Edge : Paramètres → Cookies et autorisations de site</li>
+              {(t.raw("policy.manage.browsers") as string[]).map((b) => (
+                <li key={b}>{b}</li>
+              ))}
             </ul>
           </section>
         </div>

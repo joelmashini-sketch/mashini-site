@@ -26,7 +26,13 @@
       },
       "manage": {
         "title": "Cookie管理",
-        "desc": "您可以随时通过浏览器设置禁用Cookie。请注意，禁用技术性Cookie可能会影响网站的正常运行。"
+        "desc": "您可以随时通过浏览器设置禁用Cookie。请注意，禁用技术性Cookie可能会影响网站的正常运行。",
+        "browsers": [
+          "Chrome：设置 → 隐私和安全 → Cookie",
+          "Firefox：选项 → 隐私与安全 → Cookie",
+          "Safari：偏好设置 → 隐私",
+          "Edge：设置 → Cookie 和网站权限"
+        ]
       },
       "contact": {
         "title": "联系方式",
@@ -128,6 +134,7 @@
     "dualExpertise": {
       "eyebrow": "我们的方法",
       "title": "我们的双重专业知识",
+      "corporateTitle": "企业服务",
       "corporateSubtitle": "面向国际子公司",
       "corporateItems": [
         "审计与法定审计",

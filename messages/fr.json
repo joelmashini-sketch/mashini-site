@@ -26,7 +26,13 @@
       },
       "manage": {
         "title": "Gestion des cookies",
-        "desc": "Vous pouvez à tout moment désactiver les cookies via les paramètres de votre navigateur. Notez que la désactivation des cookies techniques peut affecter le bon fonctionnement du site."
+        "desc": "Vous pouvez à tout moment désactiver les cookies via les paramètres de votre navigateur. Notez que la désactivation des cookies techniques peut affecter le bon fonctionnement du site.",
+        "browsers": [
+          "Chrome : Paramètres → Confidentialité → Cookies",
+          "Firefox : Préférences → Vie privée → Cookies",
+          "Safari : Préférences → Confidentialité",
+          "Edge : Paramètres → Cookies et autorisations de site"
+        ]
       },
       "contact": {
         "title": "Contact",
@@ -128,6 +134,7 @@
     "dualExpertise": {
       "eyebrow": "Notre approche",
       "title": "Notre double expertise",
+      "corporateTitle": "Corporate Services",
       "corporateSubtitle": "Pour les filiales internationales",
       "corporateItems": [
         "Audit & Commissariat aux comptes",

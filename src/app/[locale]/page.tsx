@@ -225,7 +225,7 @@ export default async function Home({
                 <Building2 size={24} />
               </span>
               <h3 className="mt-6 font-serif-display text-xl font-semibold text-brand-ink">
-                Corporate Services
+                {t("dualExpertise.corporateTitle")}
               </h3>
               <p className="mt-1 text-sm font-medium text-brand-ink-light">
                 {t("dualExpertise.corporateSubtitle")}

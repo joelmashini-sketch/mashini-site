@@ -26,7 +26,13 @@
       },
       "manage": {
         "title": "Managing cookies",
-        "desc": "You can disable cookies at any time via your browser settings. Please note that disabling technical cookies may affect the proper functioning of the site."
+        "desc": "You can disable cookies at any time via your browser settings. Please note that disabling technical cookies may affect the proper functioning of the site.",
+        "browsers": [
+          "Chrome: Settings → Privacy and security → Cookies",
+          "Firefox: Options → Privacy & Security → Cookies",
+          "Safari: Preferences → Privacy",
+          "Edge: Settings → Cookies and site permissions"
+        ]
       },
       "contact": {
         "title": "Contact",
@@ -128,6 +134,7 @@
     "dualExpertise": {
       "eyebrow": "Our approach",
       "title": "Our dual expertise",
+      "corporateTitle": "Corporate Services",
       "corporateSubtitle": "For international subsidiaries",
       "corporateItems": [
         "Audit & Statutory audit",
