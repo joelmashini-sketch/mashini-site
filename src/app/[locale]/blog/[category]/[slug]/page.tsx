@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Container from "@/components/Container";
 import { Link } from "@/i18n/navigation";
+import { Download } from "lucide-react";
 import {
   posts,
   getCategoryBySlug,
@@ -190,6 +191,38 @@ export default async function ArticlePage({
             </div>
 
             <article>{blocks.map((block, idx) => renderBlock(block, idx))}</article>
+
+            {/* Download link */}
+            {post.downloadLink && (
+              <div className="mt-10 flex items-center gap-4 rounded-sm border border-brand-orange/30 bg-brand-orange/5 px-6 py-5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-orange/10 text-brand-orange">
+                  <Download size={18} />
+                </span>
+                <div className="flex-1">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-orange">
+                    {locale === "en" ? "Briefing Note" : locale === "zh" ? "简报文件" : "Note de synthèse"}
+                  </p>
+                  <a
+                    href={post.downloadLink.href}
+                    download
+                    className="mt-0.5 block text-sm font-semibold text-brand-ink transition-colors hover:text-brand-orange"
+                  >
+                    {locale === "en"
+                      ? (post.downloadLink.labelEn ?? post.downloadLink.label)
+                      : locale === "zh"
+                      ? (post.downloadLink.labelZh ?? post.downloadLink.label)
+                      : post.downloadLink.label}
+                  </a>
+                </div>
+                <a
+                  href={post.downloadLink.href}
+                  download
+                  className="shrink-0 rounded-sm bg-brand-orange px-4 py-2 text-[12px] font-semibold uppercase tracking-wide text-white transition-colors hover:bg-brand-orange-dark"
+                >
+                  PDF
+                </a>
+              </div>
+            )}
 
             {/* CTA */}
             <div className="mt-14 rounded-sm bg-brand-ink px-7 py-8 text-white">

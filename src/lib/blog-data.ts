@@ -23,6 +23,7 @@ export type Post = {
   blocks: Block[];
   blocksEn?: Block[];
   blocksZh?: Block[];
+  downloadLink?: { label: string; labelEn?: string; labelZh?: string; href: string };
 };
 
 export type Category = {
@@ -234,6 +235,12 @@ export const posts: Post[] = [
       { t: "quote", c: "L'élaboration du plan triennal du Contenu local doit être anticipée dès maintenant — les délais de mise en conformité sont courts et les sanctions, immédiates." },
       { t: "p", c: "Mashini & Associés accompagne ses clients dans l'analyse d'impact de cette loi sur leurs opérations, l'élaboration de leur plan triennal de Contenu local et la mise en conformité de leur structure capitalistique. Contactez-nous pour un premier échange." },
     ],
+    downloadLink: {
+      label: "Télécharger la note complète (PDF)",
+      labelEn: "Download the full briefing note (PDF)",
+      labelZh: "下载完整简报（PDF）",
+      href: "/MASHNI_Associes_Loi_Contenu_Local_RDC.pdf",
+    },
   },
 
   {
