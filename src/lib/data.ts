@@ -460,6 +460,22 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    slug: "loi-contenu-local-rdc-2026",
+    title: "La RDC adopte sa Loi sur le Contenu local : ce que les entreprises doivent savoir",
+    category: "investment-insights",
+    date: "2026-07-01",
+    excerpt: "Analyse de la Loi n° 26/018 du 30 juin 2026 sur le Contenu local en RDC : obligations, quotas de marchés publics, participation au capital et sanctions.",
+    content: [
+      "Promulguée le 30 juin 2026, la Loi n° 26/018 sur le Contenu local en République Démocratique du Congo marque un tournant majeur pour toutes les entreprises opérant dans le pays. Son champ d'application est universel : tous secteurs confondus, marchés publics et privés, projets financés par l'État ou par des investisseurs privés.",
+      "La loi vise à accroître la participation des nationaux et des entreprises à capitaux majoritairement congolais dans l'ensemble des chaînes de valeur de l'économie. Elle poursuit un double objectif : favoriser l'émergence d'une classe moyenne congolaise et créer des champions nationaux capables de rivaliser à l'échelle régionale et internationale.",
+      "Un nouveau cadre institutionnel accompagne cette loi : l'Autorité de Régulation du Contenu Local du Congo (ARCLOC), chargée de délivrer les agréments, contrôler l'exécution des plans triennaux et sanctionner les manquements. Chaque entreprise doit désormais élaborer et soumettre un Plan triennal du Contenu local validé par l'ARCLOC.",
+      "Les obligations structurantes pour les entreprises sont multiples. Un quota de 51 % des marchés publics est réservé aux entreprises à capitaux et direction congolais, applicable progressivement (25 % la 1re année, 51 % dès la 2e). Les emplois non qualifiés sont réservés exclusivement aux Congolais. Pour les postes qualifiés et de direction, chaque entreprise doit réserver, dans un délai de 3 ans, au moins 80 % des emplois aux nationaux. Les entreprises étrangères opérant dans des secteurs stratégiques doivent également soumettre un plan de transfert de technologies.",
+      "L'une des mesures les plus structurantes concerne la participation au capital social : toute entreprise du secteur privé doit garantir une participation minimale de personnes physiques de nationalité congolaise, avec un seuil additionnel de 5 % réservé aux travailleurs congolais. Les seuils varient selon le secteur d'activité, de 8 % dans les mines et hydrocarbures jusqu'à 100 % pour certaines activités réservées exclusivement aux nationaux.",
+      "Le régime de sanctions est dissuasif. Les pénalités vont de 100 à 500 millions de FC pour défaut ou retard de rapport annuel, de 500 millions à 1 milliard de FC pour fausse déclaration dans le plan triennal, et jusqu'à 1 à 2 milliards de FC avec mise sous scellés ou fermeture temporaire en cas de défaut persistant d'ouverture du capital social. Les récidivistes s'exposent au doublement des pénalités.",
+      "Pour les filiales et groupes internationaux, cette loi exige une revue immédiate de la structure capitalistique, de la politique d'achat local et des plans de recrutement. L'élaboration du plan triennal du Contenu local doit être anticipée dès maintenant. Mashini & Associés accompagne ses clients dans l'analyse d'impact, l'élaboration de leur plan triennal et la mise en conformité de leur structure capitalistique.",
+    ],
+  },
+  {
     slug: "economic-brief-12",
     title: "Mashini Economic Brief #12",
     category: "economic-briefs",
