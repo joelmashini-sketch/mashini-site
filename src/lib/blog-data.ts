@@ -553,3 +553,21 @@ export function getSortedPosts(): Post[] {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }
+
+export function getPostTitle(post: Post, locale: string): string {
+  if (locale === "en") return post.titleEn ?? post.title;
+  if (locale === "zh") return post.titleZh ?? post.title;
+  return post.title;
+}
+
+export function getPostExcerpt(post: Post, locale: string): string {
+  if (locale === "en") return post.excerptEn ?? post.excerpt;
+  if (locale === "zh") return post.excerptZh ?? post.excerpt;
+  return post.excerpt;
+}
+
+export function getPostDateLabel(post: Post, locale: string): string {
+  if (locale === "en") return post.dateLabelEn ?? post.dateLabel;
+  if (locale === "zh") return post.dateLabelZh ?? post.dateLabel;
+  return post.dateLabel;
+}

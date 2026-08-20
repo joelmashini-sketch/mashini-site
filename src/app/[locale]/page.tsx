@@ -20,7 +20,7 @@ import {
 import Container from "@/components/Container";
 import Icon from "@/components/Icon";
 import { services, values, getServiceContent } from "@/lib/data";
-import { getSortedPosts, getCategoryBySlug } from "@/lib/blog-data";
+import { getSortedPosts, getCategoryBySlug, getPostTitle, getPostExcerpt, getPostDateLabel } from "@/lib/blog-data";
 
 export async function generateMetadata({
   params,
@@ -161,15 +161,15 @@ export default async function Home({
                     {getCategoryBySlug(featuredPost.categorySlug)?.name ?? featuredPost.categorySlug}
                   </p>
                   <h3 className="mt-4 font-serif-display text-xl font-semibold leading-snug text-white sm:text-2xl">
-                    {featuredPost.title}
+                    {getPostTitle(featuredPost, locale)}
                   </h3>
                   <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/60">
-                    {featuredPost.excerpt}
+                    {getPostExcerpt(featuredPost, locale)}
                   </p>
                 </div>
                 <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-5">
                   <span className="text-[11px] uppercase tracking-widest text-white/40">
-                    {featuredPost.dateLabel} · {featuredPost.author}
+                    {getPostDateLabel(featuredPost, locale)} · {featuredPost.author}
                   </span>
                   <Link
                     href={`/blog/${featuredPost.categorySlug}/${featuredPost.slug}`}
@@ -191,15 +191,15 @@ export default async function Home({
                         {getCategoryBySlug(post.categorySlug)?.name ?? post.categorySlug}
                       </p>
                       <h3 className="mt-3 font-serif-display text-base font-semibold leading-snug text-brand-ink sm:text-lg">
-                        {post.title}
+                        {getPostTitle(post, locale)}
                       </h3>
                       <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-brand-ink-light">
-                        {post.excerpt}
+                        {getPostExcerpt(post, locale)}
                       </p>
                     </div>
                     <div className="mt-5 flex items-center justify-between border-t border-black/[0.07] pt-4">
                       <span className="text-[11px] uppercase tracking-widest text-brand-ink-light">
-                        {post.dateLabel}
+                        {getPostDateLabel(post, locale)}
                       </span>
                       <Link
                         href={`/blog/${post.categorySlug}/${post.slug}`}

@@ -4,7 +4,7 @@ import { ArrowRight, Calendar, User } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
-import { getSortedPosts, categories } from "@/lib/blog-data";
+import { getSortedPosts, categories, getPostTitle, getPostExcerpt, getPostDateLabel } from "@/lib/blog-data";
 
 export async function generateMetadata({
   params,
@@ -93,15 +93,15 @@ export default async function BlogPage({
 
                   <div className="flex flex-1 flex-col px-6 pb-6 pt-5">
                     <h2 className="font-serif-display text-base font-semibold leading-snug text-brand-ink transition-colors group-hover:text-brand-orange sm:text-[17px]">
-                      {post.title}
+                      {getPostTitle(post, locale)}
                     </h2>
                     <p className="mt-3 flex-1 text-[13px] leading-relaxed text-brand-ink-light">
-                      {post.excerpt}
+                      {getPostExcerpt(post, locale)}
                     </p>
                     <div className="mt-5 flex items-center gap-4 text-[11px] text-brand-ink-light/60">
                       <span className="flex items-center gap-1">
                         <Calendar size={11} />
-                        {post.dateLabel}
+                        {getPostDateLabel(post, locale)}
                       </span>
                       <span className="flex items-center gap-1">
                         <User size={11} />
