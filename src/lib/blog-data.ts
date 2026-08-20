@@ -10,11 +10,19 @@ export type Post = {
   slug: string;
   categorySlug: string;
   title: string;
+  titleEn?: string;
+  titleZh?: string;
   date: string;
   dateLabel: string;
+  dateLabelEn?: string;
+  dateLabelZh?: string;
   author: string;
   excerpt: string;
+  excerptEn?: string;
+  excerptZh?: string;
   blocks: Block[];
+  blocksEn?: Block[];
+  blocksZh?: Block[];
 };
 
 export type Category = {
@@ -73,6 +81,110 @@ export const posts: Post[] = [
     dateLabel: "1er juillet 2026",
     author: "Joël MASHINI",
     excerpt: "Analyse de la Loi n° 26/018 du 30 juin 2026 sur le Contenu local en RDC : obligations, quotas de marchés publics, participation au capital et sanctions.",
+    titleEn: "The DRC adopts its Local Content Law: what businesses need to know",
+    titleZh: "刚果民主共和国通过《本地内容法》：企业须知",
+    dateLabelEn: "1 July 2026",
+    dateLabelZh: "2026年7月1日",
+    excerptEn: "Analysis of Law No. 26/018 of 30 June 2026 on Local Content in the DRC: obligations, public procurement quotas, equity participation and sanctions.",
+    excerptZh: "分析2026年6月30日颁布的第26/018号《本地内容法》：义务、公共采购配额、股权参与及制裁措施。",
+    blocksEn: [
+      { t: "p", c: "Promulgated on 30 June 2026, Law No. 26/018 on Local Content in the Democratic Republic of Congo marks a major turning point for all companies operating in the country. Its scope is universal: all sectors, public and private markets, and projects funded by the State or by private investors. In short: no company is exempt." },
+      { t: "h2", c: "A clear objective: anchoring added value on national territory" },
+      { t: "p", c: "The law aims to increase the participation of nationals and companies with majority Congolese capital in all value chains of the economy. It pursues a dual stated objective: to foster the emergence of a Congolese middle class and to create national champions capable of competing at the regional and international level." },
+      { t: "h2", c: "A new institutional framework: the ARCLOC" },
+      { t: "p", c: "The law creates the Autorité de Régulation du Contenu Local du Congo (ARCLOC — Local Content Regulatory Authority), with extensive powers: granting approvals, validating triennial plans, on-paper and on-site controls, and enforcement of sanctions. The ARCLOC is the single point of contact for all Local Content obligations." },
+      { t: "h2", c: "Structural obligations for companies" },
+      { t: "h3", c: "Triennial Local Content Plan" },
+      { t: "p", c: "Each company must develop a triennial Local Content plan, submit it to ARCLOC for approval, and report annually on its execution. This plan covers local procurement, employment, technology transfer and equity participation." },
+      { t: "h3", c: "Local procurement" },
+      { t: "p", c: "Companies must source goods and services produced or processed on national territory as a priority. Large retail outlets must reserve dedicated space for local products." },
+      { t: "h3", c: "Exclusive 51% zone for public procurement" },
+      { t: "ul", items: [
+        "51% of public contracts reserved for companies with Congolese capital and management",
+        "Applicable progressively: 25% in year 1, 51% from year 2",
+        "Personal liability of the Director General in case of repeated non-compliance",
+      ]},
+      { t: "h3", c: "Employment and training" },
+      { t: "p", c: "Unskilled jobs are reserved exclusively for Congolese nationals, with priority for residents of local communities. For skilled and managerial positions, each company must reserve, within 3 years, at least 80% of jobs for nationals." },
+      { t: "h3", c: "Technology transfer" },
+      { t: "p", c: "Any foreign company operating in a strategic sector must submit a technology transfer plan. Public and private contracts exceeding a regulatory threshold must mandatorily include a technology transfer and local capacity building component." },
+      { t: "h2", c: "Mandatory equity participation" },
+      { t: "p", c: "One of the most structural measures: every private sector company must guarantee minimum participation of Congolese nationals in its share capital, with an additional 5% threshold reserved for Congolese workers. Thresholds vary by sector:" },
+      { t: "ul", items: [
+        "Mining and hydrocarbons: 8% minimum (+ 5% for workers)",
+        "Telecommunications, banking, insurance: 25% minimum (+ 5% for workers)",
+        "Retail and wholesale trade: 51% minimum (+ 5% for workers)",
+        "Activities reserved exclusively for nationals: 100%",
+      ]},
+      { t: "p", c: "The precise implementation modalities will be set by decree of the Prime Minister. An additional 5% for Congolese workers applies consistently across almost all listed sectors." },
+      { t: "h2", c: "A deterrent sanctions regime" },
+      { t: "p", c: "Failure to comply with obligations exposes companies to a range of administrative and criminal sanctions:" },
+      { t: "ul", items: [
+        "100 to 500 million CDF for failure or delay in submitting the annual triennial plan execution report",
+        "500 million to 1 billion CDF for failure to submit or false declarations in the triennial plan",
+        "500 million to 1 billion CDF for total non-execution of the approved plan (doubled in case of repeat offence)",
+        "1 to 2 billion CDF and sealing or temporary closure for persistent failure to open capital to Congolese nationals",
+        "Up to 5 years imprisonment for ARCLOC agents guilty of corruption",
+      ]},
+      { t: "h2", c: "What this means for your business" },
+      { t: "p", c: "For subsidiaries and international groups operating in the DRC, this law requires an immediate review of three dimensions:" },
+      { t: "ul", items: [
+        "Capital structure: verify applicable thresholds for your sector and anticipate share transfers",
+        "Local procurement policy: identify qualified local suppliers and revise procurement contracts",
+        "Recruitment plan: bring HR policy into compliance with employment quotas within 3 years",
+      ]},
+      { t: "quote", c: "The development of the triennial Local Content plan must be anticipated now — compliance deadlines are short and sanctions are immediate." },
+      { t: "p", c: "Mashini & Associés supports its clients in analysing the impact of this law on their operations, developing their triennial Local Content plan and bringing their capital structure into compliance. Contact us for an initial discussion." },
+    ],
+    blocksZh: [
+      { t: "p", c: "2026年6月30日颁布的第26/018号《本地内容法》标志着在刚果民主共和国经营的所有企业面临重大转变。该法适用范围具有普遍性：涵盖所有行业、公共和私人市场，以及国家或私人投资者资助的项目。简言之：没有任何企业可以豁免。" },
+      { t: "h2", c: "明确目标：将附加值植根于国家领土" },
+      { t: "p", c: "该法旨在提高本国公民及刚果资本多数股权企业在整个经济价值链中的参与度。其双重目标为：推动刚果中产阶级的崛起，并培育能够在区域和国际层面竞争的国家冠军企业。" },
+      { t: "h2", c: "新制度框架：ARCLOC" },
+      { t: "p", c: "该法设立了刚果本地内容监管机构（ARCLOC），赋予其广泛权力：颁发许可证、审批三年计划、进行书面和现场审查，并执行制裁措施。ARCLOC是所有本地内容义务的唯一监管联络点。" },
+      { t: "h2", c: "对企业的结构性义务" },
+      { t: "h3", c: "本地内容三年计划" },
+      { t: "p", c: "每家企业须制定本地内容三年计划，提交ARCLOC审批，并每年报告执行情况。该计划涵盖本地采购、就业、技术转让及股权参与等方面。" },
+      { t: "h3", c: "本地采购" },
+      { t: "p", c: "企业须优先采购在本国领土上生产或加工的商品和服务。大型商业零售机构须留出专区展销本地产品。" },
+      { t: "h3", c: "公共采购51%专属份额" },
+      { t: "ul", items: [
+        "51%的公共合同保留给具有刚果资本和管理层的企业",
+        "逐步实施：第一年25%，第二年起达到51%",
+        "在反复违规情况下，总经理承担个人责任",
+      ]},
+      { t: "h3", c: "就业与培训" },
+      { t: "p", c: "非技术性岗位专门保留给刚果公民，优先雇用当地社区居民。对于技术性和管理性职位，每家企业须在3年内将至少80%的岗位保留给本国公民。" },
+      { t: "h3", c: "技术转让" },
+      { t: "p", c: "在战略性行业经营的任何外资企业须提交技术转让计划。超过法规规定门槛的公私合同必须包含技术转让和本地能力建设内容。" },
+      { t: "h2", c: "强制股权参与" },
+      { t: "p", c: "这是最具结构性的措施之一：私营部门的每家企业须保证刚果国籍自然人在其注册资本中占有最低比例，同时为刚果员工额外保留5%的股权。各行业门槛有所不同：" },
+      { t: "ul", items: [
+        "矿业和油气：最低8%（+5%给员工）",
+        "电信、银行、保险：最低25%（+5%给员工）",
+        "零售和批发贸易：最低51%（+5%给员工）",
+        "专属于本国公民的行业：100%",
+      ]},
+      { t: "p", c: "具体实施细节将由总理令确定。在几乎所有列明行业中，均适用为刚果工人额外保留5%股权的规定。" },
+      { t: "h2", c: "强力制裁机制" },
+      { t: "p", c: "违反义务将使企业面临一系列行政和刑事制裁：" },
+      { t: "ul", items: [
+        "未提交或延迟提交三年计划年度执行报告：罚款1亿至5亿刚果法郎",
+        "未提交或在三年计划中作虚假申报：罚款5亿至10亿刚果法郎",
+        "未完全执行已批准计划：罚款5亿至10亿刚果法郎（再犯加倍）",
+        "持续拒绝向刚果公民开放资本：罚款10亿至20亿刚果法郎并查封或临时停业",
+        "ARCLOC腐败官员最高可判处5年监禁",
+      ]},
+      { t: "h2", c: "这对您的企业意味着什么" },
+      { t: "p", c: "对于在刚果民主共和国经营的子公司和跨国集团，该法要求立即对三个方面进行审查：" },
+      { t: "ul", items: [
+        "股权结构：核实适用于您所在行业的门槛，并提前规划股份转让",
+        "本地采购政策：识别合格的本地供应商并修订采购合同",
+        "招聘计划：在3年内使人力资源政策符合就业配额要求",
+      ]},
+      { t: "quote", c: "本地内容三年计划的制定必须立即启动——合规期限短暂，制裁立竿见影。" },
+      { t: "p", c: "马什尼联合事务所为客户提供全程支持：分析该法对其运营的影响、制定本地内容三年计划，以及调整其股权结构以实现合规。欢迎联系我们进行初步沟通。" },
+    ],
     blocks: [
       { t: "p", c: "Promulguée le 30 juin 2026, la Loi n° 26/018 sur le Contenu local en République Démocratique du Congo marque un tournant majeur pour toutes les entreprises opérant dans le pays. Son champ d'application est universel : tous secteurs confondus, marchés publics et privés, projets financés par l'État ou par des investisseurs privés. En résumé : aucune entreprise n'est exemptée." },
       { t: "h2", c: "Un objectif clair : ancrer la valeur ajoutée sur le territoire national" },

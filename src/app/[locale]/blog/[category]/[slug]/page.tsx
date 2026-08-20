@@ -108,6 +108,11 @@ export default async function ArticlePage({
   const post = getPostBySlug(category, slug);
   if (!post) notFound();
 
+  const title = locale === "en" ? (post.titleEn ?? post.title) : locale === "zh" ? (post.titleZh ?? post.title) : post.title;
+  const excerpt = locale === "en" ? (post.excerptEn ?? post.excerpt) : locale === "zh" ? (post.excerptZh ?? post.excerpt) : post.excerpt;
+  const blocks = locale === "en" ? (post.blocksEn ?? post.blocks) : locale === "zh" ? (post.blocksZh ?? post.blocks) : post.blocks;
+  const dateLabel = locale === "en" ? (post.dateLabelEn ?? post.dateLabel) : locale === "zh" ? (post.dateLabelZh ?? post.dateLabel) : post.dateLabel;
+
   const cat = getCategoryBySlug(post.categorySlug);
   const allPosts = getSortedPosts();
   const currentIdx = allPosts.findIndex(
@@ -150,7 +155,7 @@ export default async function ArticlePage({
           )}
 
           <h1 className="max-w-3xl font-serif-display text-2xl font-semibold leading-snug text-brand-ink sm:text-3xl lg:text-4xl">
-            {post.title}
+            {title}
           </h1>
 
           <div className="mt-5 flex flex-wrap items-center gap-5 text-[12px] text-brand-ink-light/60">
@@ -160,12 +165,12 @@ export default async function ArticlePage({
             </span>
             <span className="flex items-center gap-1.5">
               <Calendar size={13} />
-              {post.dateLabel}
+              {dateLabel}
             </span>
           </div>
 
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-brand-ink-light">
-            {post.excerpt}
+            {excerpt}
           </p>
         </Container>
       </div>
@@ -184,7 +189,7 @@ export default async function ArticlePage({
               </Link>
             </div>
 
-            <article>{post.blocks.map((block, idx) => renderBlock(block, idx))}</article>
+            <article>{blocks.map((block, idx) => renderBlock(block, idx))}</article>
 
             {/* CTA */}
             <div className="mt-14 rounded-sm bg-brand-ink px-7 py-8 text-white">
