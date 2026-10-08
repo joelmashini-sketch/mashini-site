@@ -66,7 +66,7 @@ export default async function Home({
         <div className="flex min-h-[calc(100vh-72px)] flex-col">
 
           <div className="absolute inset-0">
-            <Image src="/Image Hero 3.png" alt="" fill priority className="object-cover object-top" sizes="100vw" />
+            <Image src="/hero-joel.jpg" alt="" fill priority className="object-cover object-center" sizes="100vw" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#080d1a]/82 via-[#080d1a]/68 to-[#080d1a]/30" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#080d1a]/65 to-transparent" />
